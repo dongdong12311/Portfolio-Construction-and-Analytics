@@ -1,0 +1,245 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{ccmap}
+\usepackage{CJK}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+	\graphicspath{{figures/}}	%在tex目录下新建figures文件夹存放所有图片
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{bm,array}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+	\setlength{\parindent}{2em}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,extarrows}
+\usepackage{cite}
+\usepackage[labelsep=space]{caption}
+\usepackage{float}
+\usepackage{fancyhdr}		%设置页眉页脚
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+\usepackage{pdfpages}
+\usepackage{titlesec}	%设置章节标题格式
+	\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,章}{1em}{}
+	\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+	\titleformat{\subsubsection}{\xiaosihao\hei}{\thesubsubsection}{0em}{}
+	\titlespacing{\section}{0pt}{0pt}{1em}
+	\titlespacing{\subsection}{0pt}{0pt}{0em}
+	\titlespacing{\subsubsection}{0pt}{0pt}{0em}
+\usepackage{titletoc}		%设置目录内容格式
+	\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,章\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+	\titlecontents{subsection}[1em]{\xiaosihao\hei}{\,\,\thecontentslabel\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+\renewcommand{\figurename}{\wuhao\bf 图}
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+\renewcommand{\contentsname}{\xiaosanhao\hei \centerline{目录}}
+\renewcommand{\refname}{\xiaosanhao\hei 参考文献}
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}	%若想引用参考文献时使用上标数字可使用此句
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{Proposition}[theorem]{Proposition}
+\newtheorem{Remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{remark}
+\newtheorem{Corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}	%公式编号跟随章节
+\allowdisplaybreaks
+
+\renewcommand{\baselinestretch}{1.5}	%1.5倍行距
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}		%设置字号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+
+\newcommand{\song}{\CJKfamily{song}}    %设置字体
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\Arial}{\fontfamily{phv}\selectfont}
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+%\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,节}{1em}{}
+%\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,节\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+
+%----------------------------------------------------------------------------------------
+%	目录
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{center}
+\begin{hei}
+\Large
+Portfolio Construction and Analytics 读书笔记\\
+（第二章）
+\end{hei}
+\end{center}
+
+
+
+\thispagestyle{fancy}
+\fancyhf{}
+%\chead{\xiaowuhao }
+\cfoot{\xiaowuhao \thepage}
+\tableofcontents
+\addcontentsline{toc}{section}{目录}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+
+%以下每一章(包括参考文献、附录)都要另起一页，并从奇数页开始
+%可以自行加入如下两行代码添加空白页
+%\newpage
+%\quad
+
+%----------------------------------------------------------------------------------------
+%	第一章 引言
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[CE]{\rightmark}
+\fancyhead[CO]{\leftmark}
+\fancyfoot[CE,CO]{\xiaowuhao \thepage}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\section{资产管理的介绍}
+\section{随机变量、概率分布和重要的统计概念}
+\section{常见的分布函数介绍}
+\section{统计学模型}
+\subsection{经典收益模型}
+
+最为经典的线性回归模型可以表示为：
+$${\displaystyle r_{i}=\alpha _{i}+f _{1}\beta_{i1}+\cdots +f _{p}\beta_{ip}+\varepsilon _{i} \qquad i=1,\ldots ,n,}$$
+
+$r_i$:第i份资产第收益率
+
+$f_k$：影响因子
+
+$\beta$:回归系数（灵敏度）
+
+$\alpha$:常数
+
+$\varepsilon _{i} $随机扰动
+
+我们之所以给出上述的模型，是假设收益率可以通过一些可观测的因子线性表出。上述的模型的衍生是多种多样的。例如：上述的模型是静态的，我们可以在不同的时间下观测数据，从而建立模型：
+$${\displaystyle r_{i,t+1}=\alpha _{i}+f _{1t}\beta_{i1}+\cdots +f _{pt}\beta_{ip}+\varepsilon _{it} \qquad i=1,\ldots ,n,}$$
+
+\subsection{回归分析}
+\subsubsection{一个简单的例子}
+
+假设我们想研究保洁公司股票的收益率和标普500指数的关系，我们可以建立如下的回归模型：
+$$r_{P\&G}=\alpha+\beta r_{S\&P500}+\varepsilon$$
+其中:
+
+$r_{P\&G}$：保洁公司股票的收益率。
+
+$r_{P\&G500}$:标普500指数收益率。
+
+我们选取了过去78个月份的数据进行回归分析，得到如下的回归方程：
+$$r_{P\&G}=0.0021+0.4617r_{S\&P500}$$
+
+经过P值检验，$\beta$系数显著不为0，经过F检验回归方程显著。为了确保回归模型的有效性，我们还需要对残差进行如下的检验：
+
+1.对$\varepsilon$进行正态性检验
+
+2.对$\varepsilon$进行方差齐性检验
+
+3.对$\varepsilon$进行自相关检验
+
+\subsubsection{回归分析在投资中的应用}
+
+回归分析在投资中的应用主要在于以下四个方面：
+
+1.建立投资策略
+
+2.选择投资策略
+
+3.选择标的资产
+
+4.评估策略表现
+
+\subsection{因子分析}
+
+一个因子分析模型和回归分析模型十分相似，例如资产回报率模型可以写成：
+$$r=\alpha + B\cdot f +\varepsilon
+$$
+其中 $\alpha$是 N维列向量，表示资产的平均回报率。f是K维因子向量，B是N$\times$K维因子载荷矩阵。
+
+因子分析存在的问题：尽管我们可以计算出具体的因子，但是有时候我们难以对因子给出合理的解释。
+
+\subsection{主成分分析}
+主成分分析（Principal Component Analysis，PCA）， 是一种统计方法。通过正交变换将一组可能存在相关性的变量转换为一组线性不相关的变量，转换后的这组变量叫主成分。
+
+设是数据的协方差矩阵，PCA的主要步骤:
+
+求解矩阵 $\mathbf{W^T}$ 满足如下的条件。
+$$Max ~~\mathbf{W^T}\mathbf{\Sigma}\mathbf{W} $$$$
+~~ s.t. \mathbf{W^T}\mathbf{W}=1 $$
+
+作为一个例子，我们考虑10支股票（AXP, T, BA, CAT, CVX, CSCO,
+KO, DD, XOM, GE）构成的投资组合在过去78个月内的收益率。我们计算得到各个主成分如下：
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=6in]{44.png}
+\caption{主成分}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=6in]{442.png}
+\caption{各个主成分占比}
+\end{figure}
+
+从中我们可以看到，前三个主成分解释了总体 74 $\%$的方差。通常我们选取占比较高的前几个成分作为我们的主成分，一旦我们确定了主成分我们就可以采用如下的公式计算得分了：
+
+$$x_k=\sum_{i=1}^{N}\beta_{ik}r_i$$
+
+\subsection{自回归条件方差模型}
+传统的回归模型假设残差的方差是相同的，然而这样的假设存在如下的问题：
+
+1.金融资产的回报率的振幅随时间变化，并且在某一时期，巨大的资产振幅往往预示着未来一段时间的振幅也会比较大。这也是我们所说的波动集群效应。
+
+2.高频金融数据往往具有厚尾性，这与传统的数据服从正态分布的假设相矛盾。
+
+基于上述的问题，我们引入了ARCH和GARCH模型。
+
+ARCH(q):
+
+以 ${\displaystyle \varepsilon _{t}}$  表示收益或者收益残差，假设 ${\displaystyle \varepsilon _{t}=\sigma _{t}z_{t}} $ ，此处 $ z_t\sim i.i.d\ N(0,1)$ （即独立同分布，均符合期望为0，方差为1 的正态分布）。在此条件下 $\sigma^2 _{t}$可以写成：
+$$\sigma _{t}^{2}=\alpha _{0}+\alpha _{1}\epsilon _{{t-1}}^{2}+\cdots +\alpha _{q}\epsilon _{{t-q}}^{2}=\alpha _{0}+\sum _{{i=1}}^{q}\alpha _{{i}}\epsilon _{{t-i}}^{2},$$
+其中$\alpha _{i}\geq 0,~i>0.$
+
+GARCH(p,q):
+
+${\displaystyle y_{t}=x'_{t}b+\epsilon _{t}}$
+
+${\displaystyle \epsilon _{t}|\psi _{t-1}\sim {\mathcal {N}}(0,\sigma _{t}^{2})}$
+
+${\displaystyle \sigma _{t}^{2}=\omega +\alpha _{1}\epsilon _{t-1}^{2}+\cdots +\alpha _{q}\epsilon _{t-q}^{2}+\beta _{1}\sigma _{t-1}^{2}+\cdots +\beta _{p}\sigma _{t-p}^{2}=\omega +\sum _{i=1}^{q}\alpha _{i}\epsilon _{t-i}^{2}+\sum _{i=1}^{p}\beta _{i}\sigma _{t-i}^{2}}$
+
+对于 ARCH和GARCH模型，我们容易计算他们的VaR和CVaR：
+$$VaR_{1-\varepsilon}=V_t(-u_r+q_{1-\varepsilon}\sigma_r)$$
+其中 $q_{1-\varepsilon}$为标准正态分布$100(1-\varepsilon)$分位数。
+同时：
+$$CVaR_(1-\varepsilon)=V_t(-u_r+\frac{\phi(q_{1-\varepsilon})}{\varepsilon}\sigma_r)$$
+
+
+
+\end{CJK*}
+\end{document}

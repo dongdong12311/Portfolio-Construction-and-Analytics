@@ -1,0 +1,333 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{ccmap}
+\usepackage{CJK}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+	\graphicspath{{figures/}}	%在tex目录下新建figures文件夹存放所有图片
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{bm,array}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+	\setlength{\parindent}{2em}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,extarrows}
+\usepackage{cite}
+\usepackage[labelsep=space]{caption}
+\usepackage{float}
+\usepackage{fancyhdr}		%设置页眉页脚
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+\usepackage{pdfpages}
+\usepackage{titlesec}	%设置章节标题格式
+	\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,章}{1em}{}
+	\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+	\titleformat{\subsubsection}{\xiaosihao\hei}{\thesubsubsection}{0em}{}
+	\titlespacing{\section}{0pt}{0pt}{1em}
+	\titlespacing{\subsection}{0pt}{0pt}{0em}
+	\titlespacing{\subsubsection}{0pt}{0pt}{0em}
+\usepackage{titletoc}		%设置目录内容格式
+	\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,章\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+	\titlecontents{subsection}[1em]{\xiaosihao\hei}{\,\,\thecontentslabel\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+\renewcommand{\figurename}{\wuhao\bf 图}
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+\renewcommand{\contentsname}{\xiaosanhao\hei \centerline{目录}}
+\renewcommand{\refname}{\xiaosanhao\hei 参考文献}
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}	%若想引用参考文献时使用上标数字可使用此句
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{Proposition}[theorem]{Proposition}
+\newtheorem{Remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{remark}
+\newtheorem{Corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}	%公式编号跟随章节
+\allowdisplaybreaks
+
+\renewcommand{\baselinestretch}{1.5}	%1.5倍行距
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}		%设置字号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+
+\newcommand{\song}{\CJKfamily{song}}    %设置字体
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\Arial}{\fontfamily{phv}\selectfont}
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+%\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,节}{1em}{}
+%\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,节\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+
+%----------------------------------------------------------------------------------------
+%	目录
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{center}
+\begin{hei}
+\Large
+Portfolio Construction and Analytics 读书笔记\\
+（第三章）
+\end{hei}
+\end{center}
+
+
+
+\thispagestyle{fancy}
+\fancyhf{}
+%\chead{\xiaowuhao }
+\cfoot{\xiaowuhao \thepage}
+\tableofcontents
+\addcontentsline{toc}{section}{目录}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+
+%以下每一章(包括参考文献、附录)都要另起一页，并从奇数页开始
+%可以自行加入如下两行代码添加空白页
+%\newpage
+%\quad
+
+%----------------------------------------------------------------------------------------
+%	第一章 引言
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[CE]{\rightmark}
+\fancyhead[CO]{\leftmark}
+\fancyfoot[CE,CO]{\xiaowuhao \thepage}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\section{资产管理的介绍}
+\section{随机变量、概率分布和重要的统计概念}
+\section{常见的分布函数介绍}
+\subsection{分布函数的样例}
+\subsubsection{记号说明}
+
+Gama 函数的定义如下：
+$$
+{\displaystyle \Gamma (z)=\int _{0}^{\infty }x^{z-1}e^{-x}\,dx}$$
+
+Beta函数的定义如下：
+$${\displaystyle \mathrm {B} (x,y)=\int _{0}^{1}t^{x-1}(1-t)^{y-1}\,dt}$$
+
+\subsubsection{离散型和连续型均匀分布}
+
+离散型均匀分布：
+$$\Pr(X=x)=\frac{1}{N}$$
+
+连续型均匀分布：
+$$f(x)={\begin{cases}{\frac {1}{b-a}}&\mathrm {for} \ a\leq x\leq b,\\[8pt]0&\mathrm {for} \ x<a\ \mathrm {or} \ x>b\end{cases}}
+$$
+
+\begin{figure}[h]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=2.2in]{3121.png}
+\caption{离散型均匀分布}
+\label{fig:side:a}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=2.2in]{3122.png}
+\caption{连续型均匀分布}
+\label{fig:side:b}
+\end{minipage}
+\end{figure}
+
+\subsubsection{t分布}
+
+密度函数:
+$$f(t) = \frac{\Gamma(\frac{\nu+1}{2})} {\sqrt{\nu\pi}\,\Gamma(\frac{\nu}{2})} \left(1+\frac{t^2}{\nu} \right)^{\!-\frac{\nu+1}{2}},\!$$
+
+
+自由度分别为1，2，3的t分布的密度函数。其中蓝色的线条表示正态分布的密度函数。绿色的线条表示上一幅图中t分布的密度函数。
+
+
+\begin{figure}[h]
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\includegraphics[width=2.2in]{3131.png}
+\caption{自由度为1}
+\end{minipage}%
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\includegraphics[width=2.2in]{3132.png}
+\caption{自由度为2}
+\end{minipage}
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\includegraphics[width=2.2in]{3133.png}
+\caption{自由度为3}
+\end{minipage}
+\end{figure}
+
+\subsubsection{对数正态分布}
+
+对数正态分布（logarithmic normal distribution）是指一个随机变量的对数服从正态分布，则该随机变量服从对数正态分布。对数正态分布从短期来看，与正态分布非常接近。但长期来看，对数正态分布向上分布的数值更多一些。
+
+密度函数：
+$${\displaystyle {\begin{aligned}f_{X}(x)&={\frac {\rm {d}}{{\rm {d}}x}}\Pr(X\leq x)={\frac {\rm {d}}{{\rm {d}}x}}\Pr(\ln X\leq \ln x)\\[6pt]&={\frac {\rm {d}}{{\rm {d}}x}}\Phi \left({\frac {\ln x-\mu }{\sigma }}\right)\\[6pt]&=\varphi \left({\frac {\ln x-\mu }{\sigma }}\right){\frac {\rm {d}}{{\rm {d}}x}}\left({\frac {\ln x-\mu }{\sigma }}\right)\\[6pt]&=\varphi \left({\frac {\ln x-\mu }{\sigma }}\right){\frac {1}{\sigma x}}\\[6pt]&={\frac {1}{x}}\cdot {\frac {1}{\sigma {\sqrt {2\pi \,}}}}\exp \left(-{\frac {(\ln x-\mu )^{2}}{2\sigma ^{2}}}\right).\end{aligned}}}$$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.2in]{314.png}
+\caption{两种不同偏度的对数正态分布}
+\end{figure}
+
+\subsubsection{泊松分布}
+
+密度函数：
+$${\displaystyle P(X=k)=e^{-\lambda }{\frac {\lambda ^{k}}{k!}}}$$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.2in]{315.png}
+\caption{不同$\lambda$值的泊松分布}
+\end{figure}
+值得一提的是，随着 $\lambda$的递增，泊松分布会不断逼近均值为$\lambda$，方差为$\sqrt{\lambda}$的正态分布，这一结论在金融模型中有重要的应用。
+
+\subsubsection{指数分布}
+
+在概率理论和统计学中，指数分布（也称为负指数分布）是描述泊松过程中的事件之间的时间的概率分布，即事件以恒定平均速率连续且独立地发生的过程。 这是伽马分布的一个特殊情况。
+
+密度函数：
+$$ f(x;\lambda) = \begin{cases}
+\lambda e^{-\lambda x} & x \ge 0, \\
+0 & x < 0.
+\end{cases}$$
+
+\newpage
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.2in]{316.png}
+\caption{不同参数的指数分布}
+\end{figure}
+
+\subsubsection{卡方分布}
+
+若n个相互独立的随机变量$\xi_1,\xi_2,\ldots,\xi_n$，均服从标准正态分布（也称独立同分布于标准正态分布），则这n个服从标准正态分布的随机变量的平方和构成一新的随机变量，其分布规律称为卡方分布（chi-square distribution）。
+
+密度函数：
+$${\displaystyle f(x;\,k)={\begin{cases}{\dfrac {x^{{\frac {k}{2}}-1}e^{-{\frac {x}{2}}}}{2^{\frac {k}{2}}\Gamma \left({\frac {k}{2}}\right)}},&x>0;\\0,&{\text{otherwise}}.\end{cases}}}$$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.2in]{317.png}
+\caption{不同参数的卡方分布}
+\end{figure}
+
+\subsubsection{伽玛分布}
+
+伽玛分布（Gamma Distribution）是统计学的一种连续概率函数，是概率统计中一种非常重要的分布。"指数分布"和"$\chi^2$分布"都是伽马分布的特例。
+
+Gamma分布中的参数α称为形状参数（shape parameter），β称为尺度参数（scale parameter）。
+
+密度函数：$$
+{\displaystyle f(x;\alpha ,\beta )={\frac {\beta ^{\alpha }x^{\alpha -1}e^{-\beta x}}{\Gamma (\alpha )}}\quad {\text{ for }}x>0{\text{ and }}\alpha ,\beta >0,}$$
+
+\subsubsection{贝塔分布}
+
+在概率论中，贝塔分布，也称Β分布，是指一组定义在(0,1) 区间的连续概率分布。
+
+密度函数：$${\displaystyle {\begin{aligned}f(x;\alpha ,\beta )&=\mathrm {constant} \cdot x^{\alpha -1}(1-x)^{\beta -1}\\[3pt]&={\frac {x^{\alpha -1}(1-x)^{\beta -1}}{\displaystyle \int _{0}^{1}u^{\alpha -1}(1-u)^{\beta -1}\,du}}\\[6pt]&={\frac {\Gamma (\alpha +\beta )}{\Gamma (\alpha )\Gamma (\beta )}}\,x^{\alpha -1}(1-x)^{\beta -1}\\[6pt]&={\frac {1}{\mathrm {B} (\alpha ,\beta )}}x^{\alpha -1}(1-x)^{\beta -1}\end{aligned}}}$$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.2in]{319.png}
+\caption{不同参数的贝塔分布}
+\end{figure}
+
+\subsection{金融回报率的分布模型}
+\subsubsection{椭圆分布族}
+
+椭圆分布的密度函数具有如下形式：
+$$f(x)=\frac{c}{\sqrt{|\Sigma|}}\cdot g((x-\mu )'\Sigma ^{{-1}}(x-\mu ))$$
+
+例如，我们所熟知的多元正态分布就属于椭圆分布族：
+$${\displaystyle {\begin{aligned}f_{\mathbf {X} }(x_{1},\ldots ,x_{k})&={\frac {\exp \left(-{\frac {1}{2}}({\mathbf {x} }-{\boldsymbol {\mu }})^{\mathrm {T} }{\boldsymbol {\Sigma }}^{-1}({\mathbf {x} }-{\boldsymbol {\mu }})\right)}{\sqrt {(2\pi )^{k}|{\boldsymbol {\Sigma }}|}}}\end{aligned}}}$$
+
+\subsubsection{稳定Paretian分布族}
+稳定Paretian分布族主要包括如下三个分布：正态分布，柯西分布，列维分布。例如我们所熟知的柯西分布，其密度函数为:
+$$f(x)={\frac  {1}{\pi \gamma \left[1+\left({\frac  {x-\mu}{\gamma }}\right)^{2}\right]}}={1 \over \pi \gamma }\left[{\gamma ^{2} \over (x-\mu)^{2}+\gamma ^{2}}\right],$$
+
+以及列维分布，其密度函数为：
+$$f(x;\mu,\gamma )=\sqrt{\frac{\gamma }{2\pi}}~~\frac{e^{ -\frac{\gamma }{2(x-\mu)}}} {(x-\mu)^{3/2}}$$
+
+我们把$\mu$称为位置参数，而把 $\gamma $称为尺度参数。
+
+\subsubsection{广义$\lambda$分布族}
+
+Tukey $\lambda $分布：
+$$
+F^{-1}(p)=Q\left(p;\lambda\right) =
+\begin{cases}
+\frac{ 1 }{ \lambda } \left[p^\lambda - (1 - p)^\lambda\right], & \mbox{if } \lambda \ne 0 \\
+\log(\frac{p}{1-p}), & \mbox{if } \lambda = 0,
+\end{cases}$$
+
+Tukey$\lambda$分布可以近似一些常见的分布：\\
+λ = -1:	~~ 接近柯西分布$ C(0,π)$\\
+λ = 0:~~	logistic分布\\
+λ = 0.14:~~	接近正态分布 $N(0, 2.142)$\\
+λ = 1:~~	均匀分布 $ U(-1, 1)$
+
+利用Tukey分布我们可以定义广义 $\lambda $分布(GLD)：
+$$
+F^{-1}(p)=Q\left(p;\lambda\right) =
+\lambda_1+\frac{ 1 }{ \lambda_2 } \left[p^\lambda_3 - (1 - p)^\lambda_4\right]$$
+上述分布的VaR和CVaR都是容易计算的。
+
+\subsection{金融回报率的尾部风险模型}
+\subsubsection{广义极值分布}
+采用标准化的方法：
+$${\displaystyle s=(x-\mu )/\sigma }$$可以得到：
+标准广义极值分布的密度函数：
+$${\displaystyle f(s;\xi )={\begin{cases}(1+\xi s)^{(-1/\xi )-1}\exp(-(1+\xi s)^{-1/\xi })&\xi \neq 0\\\exp(-s)\exp(-\exp(-s))&\xi =0\end{cases}}}$$
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in]{331.png}
+\caption{不同参数下的极值分布}
+\end{figure}
+
+\subsubsection{广义帕累托分布}
+同样的采用标准化的方法：
+$${\displaystyle s=(x-\mu )/\sigma }$$可以得到：
+标准广义帕累托分布的密度函数：
+$$f_{{(\xi ,\mu ,\sigma )}}(x)={\frac  {1}{\sigma }}\left(1+{\frac  {\xi (x-\mu )}{\sigma }}\right)^{{\left(-{\frac  {1}{\xi }}-1\right)}},$$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in]{332.png}
+\caption{不同参数下的帕累托分布}
+\end{figure}
+
+\subsubsection{极值模型}
+为了拟合GDP模型，我们通常采用极大似然法估计参数（MLE）一旦GDP的参数估计完成以后，我们就可以计算模型的VaR和CVaR了：
+$$(100-\epsilon)\%VaR = u+\frac{\theta}{\xi}((\frac{n}{N_u}(1-\frac{\epsilon}{100}))^{-\xi}-1)$$
+
+其中 $u$是门限，$n$是观测数量， $N_u$是观测值大于门限值的数量。
+
+\end{CJK*}
+\end{document}

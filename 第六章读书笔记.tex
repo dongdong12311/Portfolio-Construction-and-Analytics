@@ -1,0 +1,400 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{ccmap}
+\usepackage{CJK}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+	\graphicspath{{figures/}}	%在tex目录下新建figures文件夹存放所有图片
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{bm,array}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+	\setlength{\parindent}{2em}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,extarrows}
+\usepackage{cite}
+\usepackage[labelsep=space]{caption}
+\usepackage{float}
+\usepackage{fancyhdr}		%设置页眉页脚
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+\usepackage{pdfpages}
+\usepackage{listings} %插入代码
+\usepackage{xcolor} %代码高亮
+
+\lstset{numbers=left, %设置行号位置
+        numberstyle=\tiny, %设置行号大小
+        keywordstyle=\color{blue}, %设置关键字颜色
+        commentstyle=\color[cmyk]{1,0,1,0}, %设置注释颜色
+        frame=single, %设置边框格式
+        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+        breaklines, %自动折行
+        extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+        xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
+        tabsize=4, %设置tab空格数
+        showspaces=false %不显示空格
+       }
+\usepackage{titlesec}	%设置章节标题格式
+	\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,章}{1em}{}
+	\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+	\titleformat{\subsubsection}{\xiaosihao\hei}{\thesubsubsection}{0em}{}
+	\titlespacing{\section}{0pt}{0pt}{1em}
+	\titlespacing{\subsection}{0pt}{0pt}{0em}
+	\titlespacing{\subsubsection}{0pt}{0pt}{0em}
+\usepackage{titletoc}		%设置目录内容格式
+	\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,章\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+	\titlecontents{subsection}[1em]{\xiaosihao\hei}{\,\,\thecontentslabel\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+\renewcommand{\figurename}{\wuhao\bf 图}
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+\renewcommand{\contentsname}{\xiaosanhao\hei \centerline{目录}}
+\renewcommand{\refname}{\xiaosanhao\hei 参考文献}
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}	%若想引用参考文献时使用上标数字可使用此句
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{Proposition}[theorem]{Proposition}
+\newtheorem{Remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{remark}
+\newtheorem{Corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}	%公式编号跟随章节
+\allowdisplaybreaks
+
+\renewcommand{\baselinestretch}{1.5}	%1.5倍行距
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}		%设置字号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+
+\newcommand{\song}{\CJKfamily{song}}    %设置字体
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\Arial}{\fontfamily{phv}\selectfont}
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+%\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,节}{1em}{}
+%\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,节\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+
+%----------------------------------------------------------------------------------------
+%	目录
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{center}
+\begin{hei}
+\Large
+Portfolio Construction and Analytics 读书笔记\\
+\end{hei}
+\end{center}
+
+
+
+\thispagestyle{fancy}
+\fancyhf{}
+%\chead{\xiaowuhao }
+\cfoot{\xiaowuhao \thepage}
+\tableofcontents
+\addcontentsline{toc}{section}{目录}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+
+%以下每一章(包括参考文献、附录)都要另起一页，并从奇数页开始
+%可以自行加入如下两行代码添加空白页
+%\newpage
+%\quad
+
+%----------------------------------------------------------------------------------------
+%	第一章 引言
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[CE]{\rightmark}
+\fancyhead[CO]{\leftmark}
+\fancyfoot[CE,CO]{\xiaowuhao \thepage}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\section{资产管理的介绍}
+\section{随机变量、概率分布和重要的统计概念}
+\section{常见的分布函数介绍}
+\section{统计学模型}
+\section{模型模拟}
+\section{模型优化}
+本章我们主要讨论的是优化问题——在一系列限制条件下如何使得我们的模型是最优的。
+\subsection{优化公式}
+一个优化问题的数学表达式主要由以下三个部分组成：
+
+1.一系列的决策变量（一般由一个 $N \times 1$维的向量组成）
+
+2.一个目标函数
+
+3.一系列的限制条件$(g_i(x),h_j(x))$满足： $g_i(x)\leq 0,h_j(x)= 0$
+
+一般来说我们的目标函数总是可以写成：
+
+\begin{center}
+Maximize： 资产预期回报率
+\end{center}
+
+\subsubsection{最大化和最小化}
+通常来说，最优化问题可以写成如下的表达式：
+$${\begin{aligned}{\text{minimize }}&f(x)\\{\text{subject to }}&g_{i}(x)\leq 0 ~~i\in \{1,\dotsc ,I\}\\&h_{j}(x)=0 ~~j\in \{1,\dotsc ,J\}.\end{aligned}}$$
+
+同时最大化问题和最小化问题也是可以相互转化的：
+
+$$\max_x f(x) = -\min_x -f(x)$$
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{611.png}
+\caption{最大化f(x)相当于最小化-f(x)}
+\end{figure}
+
+\subsubsection{局部最优和全局最优}
+在求解最优解的时候，部分算法（例如梯度下降法）容易陷入局部最优解而无法得到全局最优解。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{612.png}
+\end{figure}
+\subsubsection{多目标优化}
+多目标规划是数学规划的一个分支。研究多于一个的目标函数在给定区域上的最优化。又称多目标最优化。通常记为 MOP(multi-objective programming)。
+求解多目标线性规划的基本思想是将多目标转化为单目标，常见的方法有理想点法、线性加权法、最大最小法、目标规划法、模糊数学解法等。
+
+\subsection{重要的优化问题}
+
+\subsubsection{凸优化}
+所谓的凸优化问题是指我们的目标函数和约束条件都是凸函数：
+$$
+{\displaystyle {\begin{aligned}&{\min_x}&&f(x) \\
+&{\text{subject to}}&& g_i(x)\leq 0 \; i =1,\ldots, I\\
+& &&A\mathbf {x} \leq \mathbf {b}\end{aligned}}} $$
+
+其中$f(x)$和$g_i(x)$都是凸函数。
+
+\subsubsection{线性规划}
+线性规划（Linear programming,简称LP）是运筹学中研究较早、发展较快、应用广泛、方法较成熟的一个重要分支，它是辅助人们进行科学管理的一种数学方法。研究线性约束条件下线性目标函数的极值问题的数学理论和方法。
+线性规划问题的标准形式：
+$$
+{\displaystyle {\begin{aligned}&{\min_x}&&\mathbf {c} ^{\mathrm {T} }\mathbf {x} \\&{\text{subject to}}&&A\mathbf {x} \leq \mathbf {b} \\& &&\mathbf {x} \geq \mathbf {0} \end{aligned}}}$$
+
+\subsubsection{二次规划}
+
+二次规划的一般形式可以表示为：
+$$
+{\displaystyle
+{\begin{aligned}
+&{\min_x}&&{\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x} \\
+&{\text{subject to}}&&{\displaystyle A\mathbf {x} \leq \mathbf {b} ,}\\
+&  &&\mathbf {x} \geq \mathbf {0}
+\end{aligned}}}$$
+\\
+其中:
+
+$x$是一个$N$维决策变量
+
+$Q$是一个$N\times N$维矩阵
+
+$c$是一个$N$维向量
+
+$A$是一个$J\times N$维矩阵
+
+$b$是一个$J$维矩阵
+
+\subsubsection{二阶锥规划}
+
+一个二阶锥规划问题(SOCP)是指具有如下形式的图规划问题：
+$$
+{\displaystyle
+{\begin{aligned}
+&{\min_x}&&c^{T}x \\
+& {\text{subject to}} &&Ax=b \\
+&&&\lVert A_{i}x+d_{i}\rVert _{2}\leq c_{i}^{T}x+e_{i},\quad i=1,\dots ,I 
+\end{aligned}}}$$
+\\
+其中:
+
+$c$是一个$N$维变量
+
+$A$是一个$J\times N$的矩阵
+
+$b$是一个$J$维向量
+
+$C_i$是一个$I_i\times N$维矩阵
+
+$d_i$是一个$I_i$维矩阵
+
+$e_i$是标量
+
+\subsubsection{整数规划}
+
+整数规划是指规划中的变量（全部或部分）限制为整数，若在线性模型中，变量限制为整数，则称为整数线性规划。
+\\
+整数规划又分为：
+
+1、纯整数规划：所有决策变量均要求为整数的整数规划
+
+2、混合整数规划：部分决策变量均要求为整数的整数规划
+
+3、纯0－1整数规划：所有决策变量均要求为0－1的整数规划
+
+4、混合0－1规划：部分决策变量均要求为0－1的整数规划
+
+\subsection{一个简单的优化例子:资产分配}
+
+现在有一个资产管理者计划投资1千万美元于下面四种基金：
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{63.png}
+\end{figure}
+
+他对自己的投资分配有如下的限定：投资于任何一种基金的比例不超过 $40\%$、投资于基金1和基金3的金额 之和不超过总投资的$60\%$、平均的投资风险水平不能超过2。
+
+我们假定 $x = (x_1,x_2,x_3,x_4)$表示投资于四种基金的金额。那么我们的目标函数可以写成：
+$$f(x) = \mu^T x = (20.69\%)x_1+(5.87\%)x_2+(10.52\%)x_3+(2.43\%)x_4$$
+
+我们的约束条件可以写成：
+
+1.总的投资金额应该等于1千万美元：
+$$x_1+x_2+x_3+x_4 =10,000,000$$
+
+2.投资于基金1和基金3的金额 之和不超过总投资的$60\%$：
+$$x_1+x_3\leq 6,000,000$$
+
+3.平均的投资风险水平不能超过2:
+$$\frac{4x_1+2x_2+2x_3+x_4}{x_1+x_2+x_3+x_4}\leq 2$$
+由于$x_1+x_2+x_3+x_4 =10,000,000$,所以我们化简得到：
+$$4x_1+2x_2+2x_3+x_4\leq  20,000,000$$
+
+4.投资于各个基金的比例不超过 $40\%$:
+$$x_1\leq 4,000,000,x_2\leq 4,000,000,x_3\leq 4,000,000,x_4\leq 4,000,000$$
+
+5.当然，投资金额是非负的：
+$$x_1\geq 0,x_2\geq0,x_3\geq 0,x_4  \geq 0 $$
+
+最后我们的问题可以写成如下的形式：
+$$ \max_{x_1,x_2,x_3,x_4}
+ \begin{bmatrix}
+    0.2069& 0.0587 & 0.1052&0.0243 \\
+  \end{bmatrix}
+\cdot
+  \begin{bmatrix}
+    x_1  \\
+    x_2  \\
+    x_3 \\
+    x_4
+  \end{bmatrix}$$
+$$
+ \begin{bmatrix}
+    1& 1 & 1&1 \\
+  \end{bmatrix}
+\cdot
+  \begin{bmatrix}
+    x_1  \\
+    x_2  \\
+    x_3 \\
+    x_4
+  \end{bmatrix}=10,000,000$$
+$$
+ \begin{bmatrix}
+    1& 0 & 1&0 \\
+    4& 2 & 2&1 \\
+    0& 0 & 1&0 \\
+    0& 0 & 0&1 \\
+  \end{bmatrix}
+\cdot
+  \begin{bmatrix}
+    x_1  \\
+    x_2  \\
+    x_3 \\
+    x_4
+  \end{bmatrix}
+  \leq
+  \begin{bmatrix}
+    6,000,000  \\
+    20,000,000  \\
+    4,000,000 \\
+    4,000,000 \\
+    4,000,000 \\
+    4,000,000 \\
+  \end{bmatrix}$$
+  $$
+  \begin{bmatrix}
+    x_1  \\
+    x_2  \\
+    x_3 \\
+    x_4
+  \end{bmatrix}
+  \geq
+  \begin{bmatrix}
+    0\\
+    0\\
+    0\\
+    0
+  \end{bmatrix}$$
+
+\subsection{优化算法}
+求解线性规划问题的基本方法是单纯形法。单纯形算法利用多面体的顶点构造一个可能的解，然后沿着多面体的边走到目标函数值更高的另一个顶点，直至到达最优解为止。虽然这个算法在实际上很有效率，在小心处理可能出现的“循环”的情况下，可以保证找到最优解，但它的最坏情况可以很坏：可以构筑一个线性规划问题，单纯形算法需要问题大小的指数倍的运行时间才能将之解出。事实上，有一段时期内人们曾不能确定线性规划问题是NP完全问题还是可以在多项式时间里解出的问题。
+
+第一个在最坏情况具有多项式时间复杂度的线性规划算法在1979年由前苏联数学家Leonid Khachiyan提出。这个算法建基于非线性规划中Naum Shor发明的椭球法（ellip-soid method），该法又是Arkadi Nemirovski（2003年冯诺伊曼运筹学理论奖得主）和 D. Yudin的凸集最优化椭球法的一般化。
+
+理论上，“椭球法”在最恶劣的情况下所需要的计算量要比“单形法”增长的缓慢，有希望用之解决超大型线性规划问题。但在实际应用上，Khachiyan的算法令人失望：一般来说，单纯形算法比它更有效率。它的重要性在于鼓励了对内点算法的研究。内点算法是针对单形法的“边界趋近”观念而改采“内部逼近”的路线，相对于只沿着可行域的边沿进行移动的单纯形算法，内点算法能够在可行域内移动。
+
+1984年，贝尔实验室印度裔数学家卡马卡（Narendra Karmarkar）提出了投影尺度法（又名Karmarkar's algorithm）。这是第一个在理论上和实际上都表现良好的算法：它的最坏情况仅为多项式时间，且在实际问题中它比单纯形算法有显著的效率提升。自此之后，很多内点算法被提出来并进行分析。一个常见的内点算法为Mehrotra predictor-corrector method。尽管在理论上对它所知甚少，在实际应用中它却表现出色。
+\subsection{优化软件}
+
+matlab、python、c++、java 理论上都可以用于求解。
+
+\subsection{一个求解的例子}
+\subsubsection{Excel求解}
+
+这里我采用的是matlab求解。代码如下：
+\begin{lstlisting}[language=Matlab]
+f=[-0.2069 -0.0587 -0.1052 -0.0243];
+Aineq=[1 0 1 0;4 2 2 1;1 0 0 0 ;0 1 0 0 ;0 0 1 0 ;0  0 0 1];
+bineq=[6 20 4 4 4 4];
+Aeq=[1,1,1,1];
+beq=10;
+lb=[0 0 0 0 ];
+%% Start with the default options
+options = optimoptions('linprog');
+%% Modify options setting
+options = optimoptions(options,'Display', 'off');
+options = optimoptions(options,'Algorithm', 'interior-point');
+[x,fval,exitflag,output,lambda] = ...
+linprog(f,Aineq,bineq,Aeq,beq,lb,[],[],options);
+\end{lstlisting}
+
+
+\subsubsection{求解结果}
+
+运行上述代码得到求解的结果：
+  $$x=\begin{bmatrix}
+    2,000,000\\
+    0\\
+    4,000,000\\
+    4,000,000
+  \end{bmatrix}$$
+$$fmax = 931,800$$
+所以我们投资于四种基金的金额分别为：    2,000,000美元，0美元，
+    4,000,000美元，
+    4,000,000美元。
+  一年后我们的预期收益为931,800美元。
+\end{CJK*}
+\end{document}

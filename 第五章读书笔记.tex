@@ -1,0 +1,189 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{ccmap}
+\usepackage{CJK}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+	\graphicspath{{figures/}}	%在tex目录下新建figures文件夹存放所有图片
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{bm,array}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+	\setlength{\parindent}{2em}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,extarrows}
+\usepackage{cite}
+\usepackage[labelsep=space]{caption}
+\usepackage{float}
+\usepackage{fancyhdr}		%设置页眉页脚
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+\usepackage{pdfpages}
+\usepackage{titlesec}	%设置章节标题格式
+	\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,章}{1em}{}
+	\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+	\titleformat{\subsubsection}{\xiaosihao\hei}{\thesubsubsection}{0em}{}
+	\titlespacing{\section}{0pt}{0pt}{1em}
+	\titlespacing{\subsection}{0pt}{0pt}{0em}
+	\titlespacing{\subsubsection}{0pt}{0pt}{0em}
+\usepackage{titletoc}		%设置目录内容格式
+	\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,章\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+	\titlecontents{subsection}[1em]{\xiaosihao\hei}{\,\,\thecontentslabel\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+\renewcommand{\figurename}{\wuhao\bf 图}
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+\renewcommand{\contentsname}{\xiaosanhao\hei \centerline{目录}}
+\renewcommand{\refname}{\xiaosanhao\hei 参考文献}
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}	%若想引用参考文献时使用上标数字可使用此句
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{Proposition}[theorem]{Proposition}
+\newtheorem{Remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{remark}
+\newtheorem{Corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}	%公式编号跟随章节
+\allowdisplaybreaks
+
+\renewcommand{\baselinestretch}{1.5}	%1.5倍行距
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}		%设置字号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+
+\newcommand{\song}{\CJKfamily{song}}    %设置字体
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\Arial}{\fontfamily{phv}\selectfont}
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+%\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,节}{1em}{}
+%\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,节\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+
+%----------------------------------------------------------------------------------------
+%	目录
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{center}
+\begin{hei}
+\Large
+Portfolio Construction and Analytics 读书笔记\\
+\end{hei}
+\end{center}
+
+
+
+\thispagestyle{fancy}
+\fancyhf{}
+%\chead{\xiaowuhao }
+\cfoot{\xiaowuhao \thepage}
+\tableofcontents
+\addcontentsline{toc}{section}{目录}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+
+%以下每一章(包括参考文献、附录)都要另起一页，并从奇数页开始
+%可以自行加入如下两行代码添加空白页
+%\newpage
+%\quad
+
+%----------------------------------------------------------------------------------------
+%	第一章 引言
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[CE]{\rightmark}
+\fancyhead[CO]{\leftmark}
+\fancyfoot[CE,CO]{\xiaowuhao \thepage}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\section{资产管理的介绍}
+\section{随机变量、概率分布和重要的统计概念}
+\section{常见的分布函数介绍}
+\section{统计学模型}
+\section{模型模拟}
+\subsection{蒙特卡罗模拟}
+假设你现在有1000美元。你计划用这笔资金投资标普500指数。$C_0,C_1$分别表示期初和期末（一年以后）
+的资金。$r_{0,1}$表示期间资金的回报率。则有：
+$$C_1=(1+r_{0,1})C_0$$
+在$[t,t+1]$区间内资金的回报率可以表示成：
+$$r_t=\frac{P_{t+1}-P_t+D_t}{P_t}$$
+
+$P_t$:标普500指数在$t$时刻的价格
+
+$D_t$:在区间$[t,t+1]$内的标普500指数的股息
+\subsubsection{选择分布函数}
+为了采用蒙特卡罗模拟我们的模型，我们首先要确定模拟数据的分布函数。这里有两种方法确定数据的分布函数。第一种是采用历史数据，第二种是随机产生一种给定分布的数据序列。例如，我们可以生成一组均值为$\mu$，方差为$\sigma$的正态分布的数据。
+
+
+\subsubsection{理解蒙特卡罗模拟的输出}
+
+作为蒙特卡罗模拟的一个例子，我们模拟了标普指数一年以后的收益情况。我们生成了100个服从正态分布的随机数（均值为8.79$\%$,方差为 $14.65\%$）图表中的直方图展示了未来一年的收益率分布：
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=5in]{512.png}
+\caption{未来一年标普500收益率分布}
+\end{figure}
+
+根据统计学的知识我们可以知道，我们有$95\%$的置信度认为一年后的收益率分布的区间：
+$${\displaystyle \left({\bar {x}}-z^{*}{\sigma  \over {\sqrt {n}}},{\bar {x}}+z^{*}{\sigma  \over {\sqrt {n}}}\right)}=(1058.9,1116.9)
+$$
+
+\subsection{为什么采用蒙特卡罗模拟}
+
+上面的例子给出了蒙特卡罗模拟的基本方法，我们采用上述方法，给出了一年以后收益率的分布情况。值得注意的是，如果标普500收益率不满足正态分布，那么我们的模拟就不准确了。下面的例子是一个更加复杂的模拟。
+
+\subsubsection{多个输入变量和混合分布}
+
+假设你为未来养老而计划做一笔投资，投资的本金为1000美元，投资的周期为30年。假设标普500指数服从均值为$\mu$，方差为$\sigma$的正态分布。记期初的资金为 $C_0$,期末的资金为 $C_{30}$。容易知道，期末的收益可以写成：
+$$r_{0,t}=(1+r_{0,1})(1+r_{1,2})\ldots(1+r_{t-1,t})-1$$
+期末的收益取决于这30个正态分布。
+
+\subsubsection{合并相关}
+如果我们投资的是两类标的：国债和股票。这二者的收益率存在着负相关。那么我们又该如何模拟呢？不妨假设股票和国债收益率的相关系数为-0.2。国债收益率服从均值为$4\%$，方差为$7\%$的正态分布。我们采用蒙特卡罗进行了500次模拟，下图展示了30年后收益率的分布情况：
+\begin{figure}[h]
+\centering
+\includegraphics[width=5in]{522.png}
+\end{figure}
+
+\subsubsection{模型评估}
+如何评估模型的好坏呢？我们考虑下面两种不同的策略：
+
+A：$50\%$资金投资股票，$50\%$资金投资债券
+
+B：$30\%$资金投资股票，$70\%$资金投资债券
+
+我们对投资组合A和投资组合B都进行了400次模拟。从模拟的结果我们可以看到，30年后，投资组合A
+的平均收益大于投资组合B。但是投资组合A的变异系数也大于投资组合B。这说明投资组合A的风险比B大。课本上的图标罗列了二者的均值、方差、峰度、偏度。从中我们可以直观地看到两个投资组合的差异。
+\begin{figure}[h]
+\centering
+\includegraphics[width=5in]{523.png}
+\end{figure}
+\subsubsection{模拟多少次？}
+模拟的数据至少要大于等于30才具有统计学意义。在上述的例子中我们模拟了400个样本用于分析。一般来说提高样本的数量有助于我们提高模拟的精度。
+\subsubsection{随机数的生成}
+Excel、R、MATLAB 都可以很方便地生成随机数，可参考各软件的文档、也可百度。
+
+
+\end{CJK*}
+\end{document}

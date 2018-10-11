@@ -1,0 +1,1031 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{ccmap}
+\usepackage{CJK}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+	\graphicspath{{figures/}}	%在tex目录下新建figures文件夹存放所有图片
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{bm,array}
+\usepackage{subfigure}
+\usepackage{listings} %插入代码
+\usepackage{xcolor} %代码高亮
+
+\lstset{numbers=left, %设置行号位置
+        numberstyle=\tiny, %设置行号大小
+        keywordstyle=\color{blue}, %设置关键字颜色
+        commentstyle=\color[cmyk]{1,0,1,0}, %设置注释颜色
+        frame=single, %设置边框格式
+        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+        breaklines, %自动折行
+        extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+        xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
+        tabsize=4, %设置tab空格数
+        showspaces=false %不显示空格
+       }
+\usepackage{indentfirst}
+	\setlength{\parindent}{2em}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,extarrows}
+\usepackage{cite}
+\usepackage[labelsep=space]{caption}
+\usepackage{float}
+\usepackage{fancyhdr}		%设置页眉页脚
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+\usepackage{pdfpages}
+\usepackage{titlesec}	%设置章节标题格式
+	\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,章}{1em}{}
+	\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+	\titleformat{\subsubsection}{\xiaosihao\hei}{\thesubsubsection}{0em}{}
+	\titlespacing{\section}{0pt}{0pt}{1em}
+	\titlespacing{\subsection}{0pt}{0pt}{0em}
+	\titlespacing{\subsubsection}{0pt}{0pt}{0em}
+\usepackage{titletoc}		%设置目录内容格式
+	\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,章\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+	\titlecontents{subsection}[1em]{\xiaosihao\hei}{\,\,\thecontentslabel\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+\renewcommand{\figurename}{\wuhao\bf 图}
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+\renewcommand{\contentsname}{\xiaosanhao\hei \centerline{目录}}
+\renewcommand{\refname}{\xiaosanhao\hei 参考文献}
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}	%若想引用参考文献时使用上标数字可使用此句
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{Proposition}[theorem]{Proposition}
+\newtheorem{Remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{remark}
+\newtheorem{Corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}	%公式编号跟随章节
+\allowdisplaybreaks
+
+\renewcommand{\baselinestretch}{1.5}	%1.5倍行距
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}		%设置字号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+
+\newcommand{\song}{\CJKfamily{song}}    %设置字体
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\Arial}{\fontfamily{phv}\selectfont}
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+%\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,节}{1em}{}
+%\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,节\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+
+%----------------------------------------------------------------------------------------
+%	目录
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{center}
+\begin{hei}
+\Large
+Portfolio Construction and Analytics 读书笔记
+\end{hei}
+\end{center}
+
+
+
+\thispagestyle{fancy}
+\fancyhf{}
+%\chead{\xiaowuhao }
+\cfoot{\xiaowuhao \thepage}
+\tableofcontents
+\addcontentsline{toc}{section}{目录}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+
+%以下每一章(包括参考文献、附录)都要另起一页，并从奇数页开始
+%可以自行加入如下两行代码添加空白页
+%\newpage
+%\quad
+
+%----------------------------------------------------------------------------------------
+%	第一章 引言
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[CE]{\rightmark}
+\fancyhead[CO]{\leftmark}
+\fancyfoot[CE,CO]{\xiaowuhao \thepage}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\section{资产管理的介绍}
+\section{随机变量、概率分布和重要的统计概念}
+\subsection{随机变量}
+随机变量：定义在样本空间 $\omega$ 上的实值函数。
+
+\subsection{伯努利试验和概率分布函数}
+设伯努利试验一次成功的概率为 $p$ 那么一重伯努利试验有如下的概率分布函数：
+$$\Pr(\widetilde{X}=x)=\begin{cases}
+1-p& \text{x=0}\\
+p& \text{x=1}
+\end{cases}
+$$
+
+\subsection{n重伯努利试验}
+设伯努利试验一次成功的概率为 $p$ 那么$n$重伯努利试验成功$x$次的概率为：
+$$\Pr(\widetilde{X}=x)=\frac{n!}{x!(n-x)!}p^x(1-p)^{n-x},x=0,\ldots ,n$$
+
+\subsection{正态分布和概率分布函数}
+正态分布：
+$$f(x|\mu,\sigma)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+
+概率分布函数(PDF):
+表示随机变量在样本空间上的概率分布：$$\Pr[a\leq X\leq b]=\int _{a}^{b}f_{X}(x)\,dx$$
+\subsection{累积分布函数}
+
+累积分布函数(CDF):
+$$F(x)=\Pr[X\leq b]=\int _{-\infty}^{b}f_{X}(x)\,dx$$
+
+\subsection{描述分布}
+\subsubsection{集中趋势的度量}
+2.6.1.1 ~~均值：
+$${\displaystyle \mu =\operatorname {E} \left[X\right]=\int _{-\infty }^{\infty }xP(x)\,dx,}$$
+
+2.6.1.2 ~~方差：$$\begin{aligned}\operatorname {Var} (X)&=\operatorname {E} \left[(X-\operatorname {E} [X])^{2}\right]\end{aligned}$$
+
+2.6.1.3 ~~ k阶中心矩:
+$${\displaystyle \mu _{k}=\operatorname {E} \left[(X-\mu )^{k}\right]=\int _{-\infty }^{\infty }(x-\mu )^{k}P(x)\,dx,}$$
+
+4.矩量母函数
+$${\displaystyle M_t(X) =\operatorname {E} \left[e^{tX}\right]=\int _{-\infty }^{\infty }e^{tx}P(x)\,dx,}$$
+
+\subsubsection{风险的度量}
+2.6.2.1 ~~方差和标准差
+
+在度量投资组合的风险时，首要考虑的就是投资组合的方差和标准差：
+
+1.方差：$$\begin{aligned}\operatorname {Var} (X)&=\operatorname {E} \left[(X-\operatorname {E} [X])^{2}\right]\\&=\operatorname {E} \left[X^{2}-2X\operatorname {E} [X]+\operatorname {E} [X]^{2}\right]\\&=\operatorname {E} \left[X^{2}\right]-2\operatorname {E} [X]\operatorname {E} [X]+\operatorname {E} [X]^{2}\\&=\operatorname {E} \left[X^{2}\right]-\operatorname {E} [X]^{2}\end{aligned}$$
+
+2.标准差： $\sigma_X=\sqrt{Var(X)}$
+
+2.6.2.2 ~~变异系数
+
+当需要比较两组数据离散程度大小的时候，如果两组数据的测量尺度相差太大，或者数据量纲的不同，直接使用标准差来进行比较不合适，此时就应当消除测量尺度和量纲的影响，而变异系数可以做到这一点，它是原始数据标准差与原始数据平均数的比。CV没有量纲，这样就可以进行客观比较了。事实上，可以认为变异系数和极差、标准差和方差一样，都是反映数据离散程度的绝对值。其数据大小不仅受变量值离散程度的影响，而且还受变量值平均水平大小的影响。
+
+变异系数的定义：
+$${\displaystyle c_{\rm {v}}={\frac {\sigma }{\mu }}}$$
+
+例如：投资组合A的变异系数为0.8,投资组合B的变异系数为0.5，那么我们可以认为投资组合A的风险比较大。
+
+2.6.2.3 ~~范围
+
+随机变量的范围：即随机变量的取值范围。例如正态分布的取值范围是负无穷到正无穷。
+
+2.6.2.4 ~~百分位数
+
+随机变量X或它的概率分布的分位数$Z_a$，是指满足条件$\Pr(X\leq Z_a)=\alpha$ 的实数
+
+2.6.2.5 ~~风险价值
+
+风险价值 VaR(Value at Risk)：在市场正常波动下，某一金融资产或证券组合的最大可能损失。更为确切的是指，在一定概率水平（置信度）下，某一金融资产或证券组合价值在未来特定时期内的最大可能损失。
+
+给定置信度 $\alpha$:
+$${\displaystyle \operatorname {VaR} _{\alpha }(X)=\inf {\big \{}x\in \mathbb {R} :F_{X}(x)>\alpha {\big \}}=F_{Y}^{-1}(1-\alpha ).}$$
+
+2.6.2.6 ~~条件风险价值
+
+在投资组合超过某个给定 VaR值的条件下，该投资组合的平均损失值。
+$$ CVaR_{\alpha }(X)=E[-X\mid X\leq -VaR_{\alpha }(X)]$$
+
+\subsubsection{偏度}
+
+偏度（skewness），是统计数据分布偏斜方向和程度的度量，是统计数据分布非对称程度的数字特征。
+我们可以从图片中（来自wiki百科）直观地看出正偏度和负偏度：
+
+1.负偏度。密度函数左边的尾巴更加厚实，随机变量主要的取值分布在右边，通常我们也把他称为"右倾斜"。
+
+2.正偏度。密度函数右边的尾巴更加厚实，随机变量主要的取值分布在左边，通常我们也把他称为"左倾斜"。
+\begin{figure}[h]
+\centering  %让图片居中
+\includegraphics[width=0.5\textwidth]{1.png}
+\end{figure}
+
+计算公式：
+$${\displaystyle \gamma _{1}=\operatorname {E} \left[\left({\frac {X-\mu }{\sigma }}\right)^{3}\right]={\frac {\mu _{3}}{\sigma ^{3}}}={\frac {\operatorname {E} \left[(X-\mu )^{3}\right]}{\ \ \ (\operatorname {E} \left[(X-\mu )^{2}\right])^{3/2}}}={\frac {\kappa _{3}}{\kappa _{2}^{3/2}}}}$$
+
+\subsubsection{峰度}
+
+峰度是描述总体中所有取值分布形态陡缓程度的统计量。这个统计量需要与正态分布相比较，峰度为3表示该总体数据分布与正态分布的陡缓程度相同；峰度大于3表示该总体数据分布与正态分布相比较为陡峭，为尖顶峰；峰度小于3表示该总体数据分布与正态分布相比较为平坦，为平顶峰。峰度的绝对值数值越大表示其分布形态的陡缓程度与正态分布的差异程度越大。
+
+计算公式：
+$${\displaystyle \operatorname {Kurt} [X]=\operatorname {E} \left[\left({\frac {X-\mu }{\sigma }}\right)^{4}\right] = {\frac {\mu _{4}}{\sigma ^{4}}} ={\frac {\operatorname {E} [(X-\mu )^{4}]}{(\operatorname {E} [(X-\mu )^{2}])^{2}}}}$$
+
+\subsection{协方差和相关系数}
+
+协方差:用于衡量两个变量的总体误差。而方差是协方差的一种特殊情况，即当两个变量是相同的情况。期望值分别为E[X]与E[Y]的两个实随机变量X与Y之间的协方差Cov(X,Y)定义为：
+$$\operatorname {cov} (X,Y)=\operatorname {E} {{\big [}(X-\operatorname {E} [X])(Y-\operatorname {E} [Y]){\big ]}}$$
+
+相关系数：研究变量之间线性相关程度的量。随机变量 X和 Y 的相关系数定义为：
+$$\rho _{X,Y}=\mathrm {corr} (X,Y)={\mathrm {cov} (X,Y) \over \sigma _{X}\sigma _{Y}}={E[(X-\mu _{X})(Y-\mu _{Y})] \over \sigma _{X}\sigma _{Y}}$$
+
+\subsection{随机变量和的性质}
+
+1.随机变量和的期望。
+$$\operatorname{E}[aX+bY]=a\cdot\operatorname{E}[X]+b\cdot\operatorname{E}[Y]$$
+
+2.随机变量和的方差。
+$$Var[aX+bY]=a^2\cdot Var[X]+b^2\cdot Var[Y]+2\cdot a \cdot b \cdot Cov(X,Y)$$
+
+2.随机变量和的分布。
+对于独立的随机变量 X 和 Y, 随机变量 Z = X + Y 的密度函数就是 X的密度函数和Y的密度函数的卷积。
+$$
+{\displaystyle f_{Z}(z)=\int _{-\infty }^{\infty }f_{Y}(z-x)f_{X}(x)\,dx} {\displaystyle f_{Z}(z)=\int _{-\infty }^{\infty }f_{Y}(z-x)f_{X}(x)\,dx}$$
+
+\subsection{联合概率分布和条件概率}
+
+对于离散型随机变量X,Y，当 X=x时，Y 的条件分布为：
+$$\displaystyle P_{Y}(y\mid X=x)=P(Y=y\mid X=x)={\frac {P(X=x\ \cap Y=y)}{P(X=x)}}$$
+
+同样对于连续型随机变量，当 X=x时，Y 的条件分布为：
+$$f_{Y}(y\mid X=x)={\frac {f_{X,Y}(x,y)}{f_{X}(x)}}$$
+
+一般的我们有如下结论：
+
+1.重期望公式：$ E(E(X\mid {\mathcal  {H}}))=E(X)$
+
+2.条件方差公式：$ \operatorname {Var}(X)=\operatorname {E}(\operatorname {Var}(X\mid {\mathcal  {H}}))+\operatorname {Var}(\operatorname {E}(X\mid {\mathcal  {H}}))$
+
+3.条件协方差公式：$\displaystyle \operatorname {cov} (X,Y)=\operatorname {E} (\operatorname {cov} (X,Y\mid Z))+\operatorname {cov} (\operatorname {E} (X\mid Z),\operatorname {E} (Y\mid Z))$
+
+\begin{flushleft}
+\hei{边缘分布和密度函数}
+\end{flushleft}
+
+对于离散型随机变量：
+$$\displaystyle \Pr(X=x)=\sum _{y}\Pr(X=x,Y=y)=\sum _{y}\Pr(X=x\mid Y=y)\Pr(Y=y)$$
+
+对于连续型随机变量：
+$$\displaystyle p_{X}(x)=\int _{y}p_{X,Y}(x,y)\,\mathrm {d} y=\int _{y}p_{X\mid Y}(x\mid y)\,p_{Y}(y)\,\mathrm {d} y$$
+
+\subsection{Copulas}
+
+
+copula函数描述的是变量间的相关性，实际上是一类将联合分布函数与它们各自的边缘分布函数连接在一起的函数，因此也有人将它称为连接函数。相关理论的提出可以追溯到1959年，Sklar通过定理形式将多元分布与Copula函数联系起来。
+
+ Copula函数的定义：$ C:[0,1]^{d}\rightarrow [0,1] $ 称为是一个d维 copula函数如果：
+\begin{align*}
+\bullet &C(u_{1},\dots ,u_{i-1},0,u_{i+1},\dots ,u_{d}) =0,\text{如果某个分量为零，函数为零，}\\
+\bullet&C(1,\dots ,1,u,1,\dots ,1)=u,\text{如果函数的d-1个分量为1，那么函数是把u映成u，}\\
+\bullet &C\text{对于它的每一个分量是非减的。}
+\end{align*}
+
+\begin{flushleft}
+\hei{Sklar定理}
+\end{flushleft}
+
+Sklar 定理（二元形式）： 若$H(x,y)$是一个具有连续边缘分布的$F(x)$与$G(y)$的二元联合分布函数，那么存在
+唯一的copula函数$C$，使得 $H(x,y) = C( F(x), G(y) )$。 反之，如果$C$是一个$copula$函数，而$F$和$G $是两个任
+意的概率分布函数，那么由上式定义的H函数一定是一个联合分布函数，且对应的边缘分布刚好就是$F$和$G$。
+
+\begin{flushleft}
+\hei{Copulas函数族}
+\end{flushleft}
+
+1.高斯Copula函数
+
+高斯Copula函数是定义在单位立方体$ [0,1]^{d}.$上面的函数。它是通过定义在$ {\displaystyle \mathbb {R} ^{d}}$上的多元正态函数构造的。
+
+给定一个相关系数矩阵$ {\displaystyle R\in [-1,1]^{d\times d}}$, 参数为 $R$的高斯Copula函数可以写成：
+$$
+C_{R}^{\text{Gauss}}(u)=\Phi _{R}\left(\Phi ^{-1}(u_{1}),\dots ,\Phi ^{-1}(u_{d})\right),$$
+其中$ \Phi ^{-1} $标准正态分布函数的逆而$ \Phi _{R}$ 是均值为零、协方差为$R$的多元正态分布。
+
+2.阿基米德Copula函数
+
+函数 C 被称为阿基米德copula 如果它满足如下条件：
+$$
+{\displaystyle C(u_{1},\dots ,u_{d};\theta )=\psi ^{[-1]}\left(\psi (u_{1};\theta )+\cdots +\psi (u_{d};\theta );\theta \right)}$$
+其中$\psi \!:[0,1]\times \Theta \rightarrow [0,\infty ) $是连续、 严格递减的凸函数，并且满足：$ \psi (1;\theta )=0$。$\theta $ 从属于某个参数空间$  \Theta $.
+
+\begin{center}
+常用的阿基米德copula函数：
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+  \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  \text{名称} & $ \;C_{\theta }(u,v) $& 参数$\theta $ \\
+  \hline
+  Ali-Mikhail-Haq & ${\frac {uv}{1-\theta (1-u)(1-v)}}$ & $ \theta \in [-1,1)$ \\
+   \hline
+  Clayton & $\left[\max \left\{u^{-\theta }+v^{-\theta }-1;0\right\}\right]^{-1/\theta }$ & $ \theta \in [-1,\infty )\backslash \{0\}$ \\ \hline
+  Frank & $-{\frac {1}{\theta }}\log \!\left[1+{\frac {(\exp(-\theta u)-1)(\exp(-\theta v)-1)}{\exp(-\theta )-1}}\right]  $ & $   \theta \in \mathbb {R} \backslash \{0\}  $  \\ \hline
+  Gumbel &$ {\textstyle \exp \!\left[-\left((-\log(u))^{\theta }+(-\log(v))^{\theta }\right)^{1/\theta }\right]}$  &$ \theta \in [1,\infty )$ \\ \hline
+ Independence & ${\textstyle uv}$  &   \\ \hline
+  Joe & $ {\textstyle {1-\left[(1-u)^{\theta }+(1-v)^{\theta }-(1-u)^{\theta }(1-v)^{\theta }\right]^{1/\theta }}}$  & $\theta \in [1,\infty )$ \\
+  \hline
+\end{tabular}
+\end{center}
+
+\subsection{概率分布和取样}
+
+在通常情况下，我们无法知道总体的分布情况。所以我们通常通过样本来估计总体。例如，我们独立地观测到 $n$个样本数据： $X_1,\ldots,X_n$,通常采用如下的公式估计总体的均值、方差等参数：
+
+样本均值： $$\bar{X} = \frac{1}{n}\sum\limits_{i=1}^n X_i$$
+
+样本方差： $$s_2=\frac{1}{n-1}\sum\limits_{i=1}^{n}(X_n-\bar{X})^2$$
+
+样本标准差： $$s=\sqrt{\frac{1}{n-1}\sum\limits_{i=1}^{n}(X_n-\bar{X})^2}$$
+
+样本协方差：$$sCov(\bar{X},\bar{Y})=\frac{1}{n-1}\sum\limits_{i=1}^{n}(X_n-\bar{X})(Y_n-\bar{Y})$$
+
+样本相关系数：$$r(\bar{X},\bar{Y})=\frac{sCoV(\bar{X},\bar{Y})}{s_Xs_Y}$$
+
+\subsubsection{中心极限定理}
+
+独立同分布的中心极限定理:
+
+设随机变量$X_1，X_2，\ldots X_n$独立同分布，并且具有有限的数学期望和方差：$E(X_i)=\mu$，$ Var[X_i] = \sigma^2 < \infty $，
+
+则对任意$z$:
+$$
+ {\displaystyle \lim _{n\to \infty }\Pr \left[{\sqrt {n}}(S_{n}-\mu )\leq z\right]=\Phi \left({\frac {z}{\sigma }}\right),}$$
+ 其中$$ S_{n}:={\frac {X_{1}+\cdots +X_{n}}{n}}$$为样本的均值。
+
+\subsubsection{置信区间}
+
+置信区间是一种常用的区间估计方法，所谓置信区间就是分别以统计量的置信上限和置信下限为上下界构成的区间 。对于一组给定的样本数据，其平均值为$\mu$，标准偏差为$\sigma$，则其整体数据的平均值的$100(1-\alpha)$ $\%$ 置信区间为$(\mu-Z_{\frac{\alpha}{2}}\sigma , \mu+Z_{\frac{\alpha}{2}}\sigma )$ ，其中α为非置信水平在正态分布内的覆盖面积 $Z_{\frac{\alpha}{2}}$ 即为对应的标准分数。
+
+\subsubsection{Bootstrapping}
+
+Bootstrapping算法，指的就是利用有限的样本资料经由多次重复抽样，重新建立起足以代表母体样本分布的新样本。我们会在后续的章节中结合蒙特卡洛模拟给出详细的介绍。
+
+\subsubsection{假设检验}
+
+假设检验(Hypothesis Testing)是数理统计学中根据一定假设条件由样本推断总体的一种方法。具体作法是：根据问题的需要对所研究的总体作某种假设，记作$H_0$；选取合适的统计量，这个统计量的选取要使得在假设$H_0$成立时，其分布为已知；由实测的样本，计算出统计量的值，并根据预先给定的显著性水平进行检验，作出拒绝或接受假设$H_0$的判断。常用的假设检验方法有$u$检验法、$t$检验法、$\chi^2$检验法(卡方检验)、$F$ 检验法，秩和检验等。我们会在后续的章节中给出详细的介绍。
+\section{常见的分布函数介绍}
+\subsection{分布函数的样例}
+\subsubsection{记号说明}
+
+Gama 函数的定义如下：
+$$
+{\displaystyle \Gamma (z)=\int _{0}^{\infty }x^{z-1}e^{-x}\,dx}$$
+
+Beta函数的定义如下：
+$${\displaystyle \mathrm {B} (x,y)=\int _{0}^{1}t^{x-1}(1-t)^{y-1}\,dt}$$
+
+\subsubsection{离散型和连续型均匀分布}
+
+离散型均匀分布：
+$$\Pr(X=x)=\frac{1}{N}$$
+
+连续型均匀分布：
+$$f(x)={\begin{cases}{\frac {1}{b-a}}&\mathrm {for} \ a\leq x\leq b,\\[8pt]0&\mathrm {for} \ x<a\ \mathrm {or} \ x>b\end{cases}}
+$$
+
+\begin{figure}[h]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=2.2in]{3121.png}
+\caption{离散型均匀分布}
+\label{fig:side:a}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=2.2in]{3122.png}
+\caption{连续型均匀分布}
+\label{fig:side:b}
+\end{minipage}
+\end{figure}
+
+\subsubsection{t分布}
+
+密度函数:
+$$f(t) = \frac{\Gamma(\frac{\nu+1}{2})} {\sqrt{\nu\pi}\,\Gamma(\frac{\nu}{2})} \left(1+\frac{t^2}{\nu} \right)^{\!-\frac{\nu+1}{2}},\!$$
+
+
+自由度分别为1，2，3的t分布的密度函数。其中蓝色的线条表示正态分布的密度函数。绿色的线条表示上一幅图中t分布的密度函数。
+
+
+\begin{figure}[h]
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\includegraphics[width=2.2in]{3131.png}
+\caption{自由度为1}
+\end{minipage}%
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\includegraphics[width=2.2in]{3132.png}
+\caption{自由度为2}
+\end{minipage}
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\includegraphics[width=2.2in]{3133.png}
+\caption{自由度为3}
+\end{minipage}
+\end{figure}
+
+\subsubsection{对数正态分布}
+
+对数正态分布（logarithmic normal distribution）是指一个随机变量的对数服从正态分布，则该随机变量服从对数正态分布。对数正态分布从短期来看，与正态分布非常接近。但长期来看，对数正态分布向上分布的数值更多一些。
+
+密度函数：
+$${\displaystyle {\begin{aligned}f_{X}(x)&={\frac {\rm {d}}{{\rm {d}}x}}\Pr(X\leq x)={\frac {\rm {d}}{{\rm {d}}x}}\Pr(\ln X\leq \ln x)\\[6pt]&={\frac {\rm {d}}{{\rm {d}}x}}\Phi \left({\frac {\ln x-\mu }{\sigma }}\right)\\[6pt]&=\varphi \left({\frac {\ln x-\mu }{\sigma }}\right){\frac {\rm {d}}{{\rm {d}}x}}\left({\frac {\ln x-\mu }{\sigma }}\right)\\[6pt]&=\varphi \left({\frac {\ln x-\mu }{\sigma }}\right){\frac {1}{\sigma x}}\\[6pt]&={\frac {1}{x}}\cdot {\frac {1}{\sigma {\sqrt {2\pi \,}}}}\exp \left(-{\frac {(\ln x-\mu )^{2}}{2\sigma ^{2}}}\right).\end{aligned}}}$$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.2in]{314.png}
+\caption{两种不同偏度的对数正态分布}
+\end{figure}
+
+\subsubsection{泊松分布}
+
+密度函数：
+$${\displaystyle P(X=k)=e^{-\lambda }{\frac {\lambda ^{k}}{k!}}}$$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.2in]{315.png}
+\caption{不同$\lambda$值的泊松分布}
+\end{figure}
+值得一提的是，随着 $\lambda$的递增，泊松分布会不断逼近均值为$\lambda$，方差为$\sqrt{\lambda}$的正态分布，这一结论在金融模型中有重要的应用。
+
+\subsubsection{指数分布}
+
+在概率理论和统计学中，指数分布（也称为负指数分布）是描述泊松过程中的事件之间的时间的概率分布，即事件以恒定平均速率连续且独立地发生的过程。 这是伽马分布的一个特殊情况。
+
+密度函数：
+$$ f(x;\lambda) = \begin{cases}
+\lambda e^{-\lambda x} & x \ge 0, \\
+0 & x < 0.
+\end{cases}$$
+
+\newpage
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.2in]{316.png}
+\caption{不同参数的指数分布}
+\end{figure}
+
+\subsubsection{卡方分布}
+
+若n个相互独立的随机变量$\xi_1,\xi_2,\ldots,\xi_n$，均服从标准正态分布（也称独立同分布于标准正态分布），则这n个服从标准正态分布的随机变量的平方和构成一新的随机变量，其分布规律称为卡方分布（chi-square distribution）。
+
+密度函数：
+$${\displaystyle f(x;\,k)={\begin{cases}{\dfrac {x^{{\frac {k}{2}}-1}e^{-{\frac {x}{2}}}}{2^{\frac {k}{2}}\Gamma \left({\frac {k}{2}}\right)}},&x>0;\\0,&{\text{otherwise}}.\end{cases}}}$$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.2in]{317.png}
+\caption{不同参数的卡方分布}
+\end{figure}
+
+\subsubsection{伽玛分布}
+
+伽玛分布（Gamma Distribution）是统计学的一种连续概率函数，是概率统计中一种非常重要的分布。"指数分布"和"$\chi^2$分布"都是伽马分布的特例。
+
+Gamma分布中的参数α称为形状参数（shape parameter），β称为尺度参数（scale parameter）。
+
+密度函数：$$
+{\displaystyle f(x;\alpha ,\beta )={\frac {\beta ^{\alpha }x^{\alpha -1}e^{-\beta x}}{\Gamma (\alpha )}}\quad {\text{ for }}x>0{\text{ and }}\alpha ,\beta >0,}$$
+
+\subsubsection{贝塔分布}
+
+在概率论中，贝塔分布，也称Β分布，是指一组定义在(0,1) 区间的连续概率分布。
+
+密度函数：$${\displaystyle {\begin{aligned}f(x;\alpha ,\beta )&=\mathrm {constant} \cdot x^{\alpha -1}(1-x)^{\beta -1}\\[3pt]&={\frac {x^{\alpha -1}(1-x)^{\beta -1}}{\displaystyle \int _{0}^{1}u^{\alpha -1}(1-u)^{\beta -1}\,du}}\\[6pt]&={\frac {\Gamma (\alpha +\beta )}{\Gamma (\alpha )\Gamma (\beta )}}\,x^{\alpha -1}(1-x)^{\beta -1}\\[6pt]&={\frac {1}{\mathrm {B} (\alpha ,\beta )}}x^{\alpha -1}(1-x)^{\beta -1}\end{aligned}}}$$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=2.2in]{319.png}
+\caption{不同参数的贝塔分布}
+\end{figure}
+
+\subsection{金融回报率的分布模型}
+\subsubsection{椭圆分布族}
+
+椭圆分布的密度函数具有如下形式：
+$$f(x)=\frac{c}{\sqrt{|\Sigma|}}\cdot g((x-\mu )'\Sigma ^{{-1}}(x-\mu ))$$
+
+例如，我们所熟知的多元正态分布就属于椭圆分布族：
+$${\displaystyle {\begin{aligned}f_{\mathbf {X} }(x_{1},\ldots ,x_{k})&={\frac {\exp \left(-{\frac {1}{2}}({\mathbf {x} }-{\boldsymbol {\mu }})^{\mathrm {T} }{\boldsymbol {\Sigma }}^{-1}({\mathbf {x} }-{\boldsymbol {\mu }})\right)}{\sqrt {(2\pi )^{k}|{\boldsymbol {\Sigma }}|}}}\end{aligned}}}$$
+
+\subsubsection{稳定Paretian分布族}
+稳定Paretian分布族主要包括如下三个分布：正态分布，柯西分布，列维分布。例如我们所熟知的柯西分布，其密度函数为:
+$$f(x)={\frac  {1}{\pi \gamma \left[1+\left({\frac  {x-\mu}{\gamma }}\right)^{2}\right]}}={1 \over \pi \gamma }\left[{\gamma ^{2} \over (x-\mu)^{2}+\gamma ^{2}}\right],$$
+
+以及列维分布，其密度函数为：
+$$f(x;\mu,\gamma )=\sqrt{\frac{\gamma }{2\pi}}~~\frac{e^{ -\frac{\gamma }{2(x-\mu)}}} {(x-\mu)^{3/2}}$$
+
+我们把$\mu$称为位置参数，而把 $\gamma $称为尺度参数。
+
+\subsubsection{广义$\lambda$分布族}
+
+Tukey $\lambda $分布：
+$$
+F^{-1}(p)=Q\left(p;\lambda\right) =
+\begin{cases}
+\frac{ 1 }{ \lambda } \left[p^\lambda - (1 - p)^\lambda\right], & \mbox{if } \lambda \ne 0 \\
+\log(\frac{p}{1-p}), & \mbox{if } \lambda = 0,
+\end{cases}$$
+
+Tukey$\lambda$分布可以近似一些常见的分布：\\
+λ = -1:	~~ 接近柯西分布$ C(0,π)$\\
+λ = 0:~~	logistic分布\\
+λ = 0.14:~~	接近正态分布 $N(0, 2.142)$\\
+λ = 1:~~	均匀分布 $ U(-1, 1)$
+
+利用Tukey分布我们可以定义广义 $\lambda $分布(GLD)：
+$$
+F^{-1}(p)=Q\left(p;\lambda\right) =
+\lambda_1+\frac{ 1 }{ \lambda_2 } \left[p^\lambda_3 - (1 - p)^\lambda_4\right]$$
+上述分布的VaR和CVaR都是容易计算的。
+
+\subsection{金融回报率的尾部风险模型}
+\subsubsection{广义极值分布}
+采用标准化的方法：
+$${\displaystyle s=(x-\mu )/\sigma }$$可以得到：
+标准广义极值分布的密度函数：
+$${\displaystyle f(s;\xi )={\begin{cases}(1+\xi s)^{(-1/\xi )-1}\exp(-(1+\xi s)^{-1/\xi })&\xi \neq 0\\\exp(-s)\exp(-\exp(-s))&\xi =0\end{cases}}}$$
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in]{331.png}
+\caption{不同参数下的极值分布}
+\end{figure}
+
+\subsubsection{广义帕累托分布}
+同样的采用标准化的方法：
+$${\displaystyle s=(x-\mu )/\sigma }$$可以得到：
+标准广义帕累托分布的密度函数：
+$$f_{{(\xi ,\mu ,\sigma )}}(x)={\frac  {1}{\sigma }}\left(1+{\frac  {\xi (x-\mu )}{\sigma }}\right)^{{\left(-{\frac  {1}{\xi }}-1\right)}},$$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=3in]{332.png}
+\caption{不同参数下的帕累托分布}
+\end{figure}
+
+\subsubsection{极值模型}
+为了拟合GDP模型，我们通常采用极大似然法估计参数（MLE）一旦GDP的参数估计完成以后，我们就可以计算模型的VaR和CVaR了：
+$$(100-\epsilon)\%VaR = u+\frac{\theta}{\xi}((\frac{n}{N_u}(1-\frac{\epsilon}{100}))^{-\xi}-1)$$
+
+其中 $u$是门限，$n$是观测数量， $N_u$是观测值大于门限值的数量。
+
+\section{统计学模型}
+\subsection{经典收益模型}
+
+最为经典的线性回归模型可以表示为：
+$${\displaystyle r_{i}=\alpha _{i}+f _{1}\beta_{i1}+\cdots +f _{p}\beta_{ip}+\varepsilon _{i} \qquad i=1,\ldots ,n,}$$
+
+$r_i$:第i份资产第收益率
+
+$f_k$：影响因子
+
+$\beta$:回归系数（灵敏度）
+
+$\alpha$:常数
+
+$\varepsilon _{i} $随机扰动
+
+我们之所以给出上述的模型，是假设收益率可以通过一些可观测的因子线性表出。上述的模型的衍生是多种多样的。例如：上述的模型是静态的，我们可以在不同的时间下观测数据，从而建立模型：
+$${\displaystyle r_{i,t+1}=\alpha _{i}+f _{1t}\beta_{i1}+\cdots +f _{pt}\beta_{ip}+\varepsilon _{it} \qquad i=1,\ldots ,n,}$$
+
+\subsection{回归分析}
+\subsubsection{一个简单的例子}
+
+假设我们想研究保洁公司股票的收益率和标普500指数的关系，我们可以建立如下的回归模型：
+$$r_{P\&G}=\alpha+\beta r_{S\&P500}+\varepsilon$$
+其中:
+
+$r_{P\&G}$：保洁公司股票的收益率。
+
+$r_{P\&G500}$:标普500指数收益率。
+
+我们选取了过去78个月份的数据进行回归分析，得到如下的回归方程：
+$$r_{P\&G}=0.0021+0.4617r_{S\&P500}$$
+
+经过P值检验，$\beta$系数显著不为0，经过F检验回归方程显著。为了确保回归模型的有效性，我们还需要对残差进行如下的检验：
+
+1.对$\varepsilon$进行正态性检验
+
+2.对$\varepsilon$进行方差齐性检验
+
+3.对$\varepsilon$进行自相关检验
+
+\subsubsection{回归分析在投资中的应用}
+
+回归分析在投资中的应用主要在于以下四个方面：
+
+1.建立投资策略
+
+2.选择投资策略
+
+3.选择标的资产
+
+4.评估策略表现
+
+\subsection{因子分析}
+
+一个因子分析模型和回归分析模型十分相似，例如资产回报率模型可以写成：
+$$r=\alpha + B\cdot f +\varepsilon
+$$
+其中 $\alpha$是 N维列向量，表示资产的平均回报率。f是K维因子向量，B是N$\times$K维因子载荷矩阵。
+
+因子分析存在的问题：尽管我们可以计算出具体的因子，但是有时候我们难以对因子给出合理的解释。
+
+\subsection{主成分分析}
+主成分分析（Principal Component Analysis，PCA）， 是一种统计方法。通过正交变换将一组可能存在相关性的变量转换为一组线性不相关的变量，转换后的这组变量叫主成分。
+
+设是数据的协方差矩阵，PCA的主要步骤:
+
+求解矩阵 $\mathbf{W^T}$ 满足如下的条件。
+$$Max ~~\mathbf{W^T}\mathbf{\Sigma}\mathbf{W} $$$$
+~~ s.t. \mathbf{W^T}\mathbf{W}=1 $$
+
+作为一个例子，我们考虑10支股票（AXP, T, BA, CAT, CVX, CSCO,
+KO, DD, XOM, GE）构成的投资组合在过去78个月内的收益率。我们计算得到各个主成分如下：
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=6in]{44.png}
+\caption{主成分}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=6in]{442.png}
+\caption{各个主成分占比}
+\end{figure}
+
+从中我们可以看到，前三个主成分解释了总体 74 $\%$的方差。通常我们选取占比较高的前几个成分作为我们的主成分，一旦我们确定了主成分我们就可以采用如下的公式计算得分了：
+
+$$x_k=\sum_{i=1}^{N}\beta_{ik}r_i$$
+
+\subsection{自回归条件方差模型}
+传统的回归模型假设残差的方差是相同的，然而这样的假设存在如下的问题：
+
+1.金融资产的回报率的振幅随时间变化，并且在某一时期，巨大的资产振幅往往预示着未来一段时间的振幅也会比较大。这也是我们所说的波动集群效应。
+
+2.高频金融数据往往具有厚尾性，这与传统的数据服从正态分布的假设相矛盾。
+
+基于上述的问题，我们引入了ARCH和GARCH模型。
+
+ARCH(q):
+
+以 ${\displaystyle \varepsilon _{t}}$  表示收益或者收益残差，假设 ${\displaystyle \varepsilon _{t}=\sigma _{t}z_{t}} $ ，此处 $ z_t\sim i.i.d\ N(0,1)$ （即独立同分布，均符合期望为0，方差为1 的正态分布）。在此条件下 $\sigma^2 _{t}$可以写成：
+$$\sigma _{t}^{2}=\alpha _{0}+\alpha _{1}\epsilon _{{t-1}}^{2}+\cdots +\alpha _{q}\epsilon _{{t-q}}^{2}=\alpha _{0}+\sum _{{i=1}}^{q}\alpha _{{i}}\epsilon _{{t-i}}^{2},$$
+其中$\alpha _{i}\geq 0,~i>0.$
+
+GARCH(p,q):
+
+${\displaystyle y_{t}=x'_{t}b+\epsilon _{t}}$
+
+${\displaystyle \epsilon _{t}|\psi _{t-1}\sim {\mathcal {N}}(0,\sigma _{t}^{2})}$
+
+${\displaystyle \sigma _{t}^{2}=\omega +\alpha _{1}\epsilon _{t-1}^{2}+\cdots +\alpha _{q}\epsilon _{t-q}^{2}+\beta _{1}\sigma _{t-1}^{2}+\cdots +\beta _{p}\sigma _{t-p}^{2}=\omega +\sum _{i=1}^{q}\alpha _{i}\epsilon _{t-i}^{2}+\sum _{i=1}^{p}\beta _{i}\sigma _{t-i}^{2}}$
+
+对于 ARCH和GARCH模型，我们容易计算他们的VaR和CVaR：
+$$VaR_{1-\varepsilon}=V_t(-u_r+q_{1-\varepsilon}\sigma_r)$$
+其中 $q_{1-\varepsilon}$为标准正态分布$100(1-\varepsilon)$分位数。
+同时：
+$$CVaR_(1-\varepsilon)=V_t(-u_r+\frac{\phi(q_{1-\varepsilon})}{\varepsilon}\sigma_r)$$
+\section{模型模拟}
+\subsection{蒙特卡罗模拟}
+假设你现在有1000美元。你计划用这笔资金投资标普500指数。$C_0,C_1$分别表示期初和期末（一年以后）
+的资金。$r_{0,1}$表示期间资金的回报率。则有：
+$$C_1=(1+r_{0,1})C_0$$
+在$[t,t+1]$区间内资金的回报率可以表示成：
+$$r_t=\frac{P_{t+1}-P_t+D_t}{P_t}$$
+
+$P_t$:标普500指数在$t$时刻的价格
+
+$D_t$:在区间$[t,t+1]$内的标普500指数的股息
+\subsubsection{选择分布函数}
+为了采用蒙特卡罗模拟我们的模型，我们首先要确定模拟数据的分布函数。这里有两种方法确定数据的分布函数。第一种是采用历史数据，第二种是随机产生一种给定分布的数据序列。例如，我们可以生成一组均值为$\mu$，方差为$\sigma$的正态分布的数据。
+
+
+\subsubsection{理解蒙特卡罗模拟的输出}
+
+作为蒙特卡罗模拟的一个例子，我们模拟了标普指数一年以后的收益情况。我们生成了100个服从正态分布的随机数（均值为8.79$\%$,方差为 $14.65\%$）图表中的直方图展示了未来一年的收益率分布：
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=5in]{512.png}
+\caption{未来一年标普500收益率分布}
+\end{figure}
+
+根据统计学的知识我们可以知道，我们有$95\%$的置信度认为一年后的收益率分布的区间：
+$${\displaystyle \left({\bar {x}}-z^{*}{\sigma  \over {\sqrt {n}}},{\bar {x}}+z^{*}{\sigma  \over {\sqrt {n}}}\right)}=(1058.9,1116.9)
+$$
+
+\subsection{为什么采用蒙特卡罗模拟}
+
+上面的例子给出了蒙特卡罗模拟的基本方法，我们采用上述方法，给出了一年以后收益率的分布情况。值得注意的是，如果标普500收益率不满足正态分布，那么我们的模拟就不准确了。下面的例子是一个更加复杂的模拟。
+
+\subsubsection{多个输入变量和混合分布}
+
+假设你为未来养老而计划做一笔投资，投资的本金为1000美元，投资的周期为30年。假设标普500指数服从均值为$\mu$，方差为$\sigma$的正态分布。记期初的资金为 $C_0$,期末的资金为 $C_{30}$。容易知道，期末的收益可以写成：
+$$r_{0,t}=(1+r_{0,1})(1+r_{1,2})\ldots(1+r_{t-1,t})-1$$
+期末的收益取决于这30个正态分布。
+
+\subsubsection{合并相关}
+如果我们投资的是两类标的：国债和股票。这二者的收益率存在着负相关。那么我们又该如何模拟呢？不妨假设股票和国债收益率的相关系数为-0.2。国债收益率服从均值为$4\%$，方差为$7\%$的正态分布。我们采用蒙特卡罗进行了500次模拟，下图展示了30年后收益率的分布情况：
+\begin{figure}[h]
+\centering
+\includegraphics[width=5in]{522.png}
+\end{figure}
+
+\subsubsection{模型评估}
+如何评估模型的好坏呢？我们考虑下面两种不同的策略：
+
+A：$50\%$资金投资股票，$50\%$资金投资债券
+
+B：$30\%$资金投资股票，$70\%$资金投资债券
+
+我们对投资组合A和投资组合B都进行了400次模拟。从模拟的结果我们可以看到，30年后，投资组合A
+的平均收益大于投资组合B。但是投资组合A的变异系数也大于投资组合B。这说明投资组合A的风险比B大。课本上的图标罗列了二者的均值、方差、峰度、偏度。从中我们可以直观地看到两个投资组合的差异。
+\begin{figure}[h]
+\centering
+\includegraphics[width=5in]{523.png}
+\end{figure}
+\subsubsection{模拟多少次？}
+模拟的数据至少要大于等于30才具有统计学意义。在上述的例子中我们模拟了400个样本用于分析。一般来说提高样本的数量有助于我们提高模拟的精度。
+\subsubsection{随机数的生成}
+Excel、R、MATLAB 都可以很方便地生成随机数，可参考各软件的文档、也可百度。
+\section{模型优化}
+本章我们主要讨论的是优化问题——在一系列限制条件下如何使得我们的模型是最优的。
+\subsection{优化公式}
+一个优化问题的数学表达式主要由以下三个部分组成：
+
+1.一系列的决策变量（一般由一个 $N \times 1$维的向量组成）
+
+2.一个目标函数
+
+3.一系列的限制条件$(g_i(x),h_j(x))$满足： $g_i(x)\leq 0,h_j(x)= 0$
+
+一般来说我们的目标函数总是可以写成：
+
+\begin{center}
+Maximize： 资产预期回报率
+\end{center}
+
+\subsubsection{最大化和最小化}
+通常来说，最优化问题可以写成如下的表达式：
+$${\begin{aligned}{\text{minimize }}&f(x)\\{\text{subject to }}&g_{i}(x)\leq 0 ~~i\in \{1,\dotsc ,I\}\\&h_{j}(x)=0 ~~j\in \{1,\dotsc ,J\}.\end{aligned}}$$
+
+同时最大化问题和最小化问题也是可以相互转化的：
+
+$$\max_x f(x) = -\min_x -f(x)$$
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{611.png}
+\caption{最大化f(x)相当于最小化-f(x)}
+\end{figure}
+
+\subsubsection{局部最优和全局最优}
+在求解最优解的时候，部分算法（例如梯度下降法）容易陷入局部最优解而无法得到全局最优解。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{612.png}
+\end{figure}
+\subsubsection{多目标优化}
+多目标规划是数学规划的一个分支。研究多于一个的目标函数在给定区域上的最优化。又称多目标最优化。通常记为 MOP(multi-objective programming)。
+求解多目标线性规划的基本思想是将多目标转化为单目标，常见的方法有理想点法、线性加权法、最大最小法、目标规划法、模糊数学解法等。
+
+\subsection{重要的优化问题}
+
+\subsubsection{凸优化}
+所谓的凸优化问题是指我们的目标函数和约束条件都是凸函数：
+$$
+{\displaystyle {\begin{aligned}&{\min_x}&&f(x) \\
+&{\text{subject to}}&& g_i(x)\leq 0 \; i =1,\ldots, I\\
+& &&A\mathbf {x} \leq \mathbf {b}\end{aligned}}} $$
+
+其中$f(x)$和$g_i(x)$都是凸函数。
+
+\subsubsection{线性规划}
+线性规划（Linear programming,简称LP）是运筹学中研究较早、发展较快、应用广泛、方法较成熟的一个重要分支，它是辅助人们进行科学管理的一种数学方法。研究线性约束条件下线性目标函数的极值问题的数学理论和方法。
+线性规划问题的标准形式：
+$$
+{\displaystyle {\begin{aligned}&{\min_x}&&\mathbf {c} ^{\mathrm {T} }\mathbf {x} \\&{\text{subject to}}&&A\mathbf {x} \leq \mathbf {b} \\& &&\mathbf {x} \geq \mathbf {0} \end{aligned}}}$$
+
+\subsubsection{二次规划}
+
+二次规划的一般形式可以表示为：
+$$
+{\displaystyle
+{\begin{aligned}
+&{\min_x}&&{\tfrac {1}{2}}\mathbf {x} ^{\mathrm {T} }Q\mathbf {x} +\mathbf {c} ^{\mathrm {T} }\mathbf {x} \\
+&{\text{subject to}}&&{\displaystyle A\mathbf {x} \leq \mathbf {b} ,}\\
+&  &&\mathbf {x} \geq \mathbf {0}
+\end{aligned}}}$$
+\\
+其中:
+
+$x$是一个$N$维决策变量
+
+$Q$是一个$N\times N$维矩阵
+
+$c$是一个$N$维向量
+
+$A$是一个$J\times N$维矩阵
+
+$b$是一个$J$维矩阵
+
+\subsubsection{二阶锥规划}
+
+一个二阶锥规划问题(SOCP)是指具有如下形式的图规划问题：
+$$
+{\displaystyle
+{\begin{aligned}
+&{\min_x}&&c^{T}x \\
+& {\text{subject to}} &&Ax=b \\
+&&&\lVert A_{i}x+d_{i}\rVert _{2}\leq c_{i}^{T}x+e_{i},\quad i=1,\dots ,I
+\end{aligned}}}$$
+\\
+其中:
+
+$c$是一个$N$维变量
+
+$A$是一个$J\times N$的矩阵
+
+$b$是一个$J$维向量
+
+$C_i$是一个$I_i\times N$维矩阵
+
+$d_i$是一个$I_i$维矩阵
+
+$e_i$是标量
+
+\subsubsection{整数规划}
+
+整数规划是指规划中的变量（全部或部分）限制为整数，若在线性模型中，变量限制为整数，则称为整数线性规划。
+\\
+整数规划又分为：
+
+1、纯整数规划：所有决策变量均要求为整数的整数规划
+
+2、混合整数规划：部分决策变量均要求为整数的整数规划
+
+3、纯0－1整数规划：所有决策变量均要求为0－1的整数规划
+
+4、混合0－1规划：部分决策变量均要求为0－1的整数规划
+
+\subsection{一个简单的优化例子:资产分配}
+
+现在有一个资产管理者计划投资1千万美元于下面四种基金：
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{63.png}
+\end{figure}
+
+他对自己的投资分配有如下的限定：投资于任何一种基金的比例不超过 $40\%$、投资于基金1和基金3的金额 之和不超过总投资的$60\%$、平均的投资风险水平不能超过2。
+
+我们假定 $x = (x_1,x_2,x_3,x_4)$表示投资于四种基金的金额。那么我们的目标函数可以写成：
+$$f(x) = \mu^T x = (20.69\%)x_1+(5.87\%)x_2+(10.52\%)x_3+(2.43\%)x_4$$
+
+我们的约束条件可以写成：
+
+1.总的投资金额应该等于1千万美元：
+$$x_1+x_2+x_3+x_4 =10,000,000$$
+
+2.投资于基金1和基金3的金额 之和不超过总投资的$60\%$：
+$$x_1+x_3\leq 6,000,000$$
+
+3.平均的投资风险水平不能超过2:
+$$\frac{4x_1+2x_2+2x_3+x_4}{x_1+x_2+x_3+x_4}\leq 2$$
+由于$x_1+x_2+x_3+x_4 =10,000,000$,所以我们化简得到：
+$$4x_1+2x_2+2x_3+x_4\leq  20,000,000$$
+
+4.投资于各个基金的比例不超过 $40\%$:
+$$x_1\leq 4,000,000,x_2\leq 4,000,000,x_3\leq 4,000,000,x_4\leq 4,000,000$$
+
+5.当然，投资金额是非负的：
+$$x_1\geq 0,x_2\geq0,x_3\geq 0,x_4  \geq 0 $$
+
+最后我们的问题可以写成如下的形式：
+$$ \max_{x_1,x_2,x_3,x_4}
+ \begin{bmatrix}
+    0.2069& 0.0587 & 0.1052&0.0243 \\
+  \end{bmatrix}
+\cdot
+  \begin{bmatrix}
+    x_1  \\
+    x_2  \\
+    x_3 \\
+    x_4
+  \end{bmatrix}$$
+$$
+ \begin{bmatrix}
+    1& 1 & 1&1 \\
+  \end{bmatrix}
+\cdot
+  \begin{bmatrix}
+    x_1  \\
+    x_2  \\
+    x_3 \\
+    x_4
+  \end{bmatrix}=10,000,000$$
+$$
+ \begin{bmatrix}
+    1& 0 & 1&0 \\
+    4& 2 & 2&1 \\
+    0& 0 & 1&0 \\
+    0& 0 & 0&1 \\
+  \end{bmatrix}
+\cdot
+  \begin{bmatrix}
+    x_1  \\
+    x_2  \\
+    x_3 \\
+    x_4
+  \end{bmatrix}
+  \leq
+  \begin{bmatrix}
+    6,000,000  \\
+    20,000,000  \\
+    4,000,000 \\
+    4,000,000 \\
+    4,000,000 \\
+    4,000,000 \\
+  \end{bmatrix}$$
+  $$
+  \begin{bmatrix}
+    x_1  \\
+    x_2  \\
+    x_3 \\
+    x_4
+  \end{bmatrix}
+  \geq
+  \begin{bmatrix}
+    0\\
+    0\\
+    0\\
+    0
+  \end{bmatrix}$$
+
+\subsection{优化算法}
+求解线性规划问题的基本方法是单纯形法。单纯形算法利用多面体的顶点构造一个可能的解，然后沿着多面体的边走到目标函数值更高的另一个顶点，直至到达最优解为止。虽然这个算法在实际上很有效率，在小心处理可能出现的“循环”的情况下，可以保证找到最优解，但它的最坏情况可以很坏：可以构筑一个线性规划问题，单纯形算法需要问题大小的指数倍的运行时间才能将之解出。事实上，有一段时期内人们曾不能确定线性规划问题是NP完全问题还是可以在多项式时间里解出的问题。
+
+第一个在最坏情况具有多项式时间复杂度的线性规划算法在1979年由前苏联数学家Leonid Khachiyan提出。这个算法建基于非线性规划中Naum Shor发明的椭球法（ellip-soid method），该法又是Arkadi Nemirovski（2003年冯诺伊曼运筹学理论奖得主）和 D. Yudin的凸集最优化椭球法的一般化。
+
+理论上，“椭球法”在最恶劣的情况下所需要的计算量要比“单形法”增长的缓慢，有希望用之解决超大型线性规划问题。但在实际应用上，Khachiyan的算法令人失望：一般来说，单纯形算法比它更有效率。它的重要性在于鼓励了对内点算法的研究。内点算法是针对单形法的“边界趋近”观念而改采“内部逼近”的路线，相对于只沿着可行域的边沿进行移动的单纯形算法，内点算法能够在可行域内移动。
+
+1984年，贝尔实验室印度裔数学家卡马卡（Narendra Karmarkar）提出了投影尺度法（又名Karmarkar's algorithm）。这是第一个在理论上和实际上都表现良好的算法：它的最坏情况仅为多项式时间，且在实际问题中它比单纯形算法有显著的效率提升。自此之后，很多内点算法被提出来并进行分析。一个常见的内点算法为Mehrotra predictor-corrector method。尽管在理论上对它所知甚少，在实际应用中它却表现出色。
+\subsection{优化软件}
+
+matlab、python、c++、java 理论上都可以用于求解。
+
+\subsection{一个求解的例子}
+\subsubsection{Excel求解}
+
+这里我采用的是matlab求解。代码如下：
+\begin{lstlisting}[language=Matlab]
+f=[-0.2069 -0.0587 -0.1052 -0.0243];
+Aineq=[1 0 1 0;4 2 2 1;1 0 0 0 ;0 1 0 0 ;0 0 1 0 ;0  0 0 1];
+bineq=[6 20 4 4 4 4];
+Aeq=[1,1,1,1];
+beq=10;
+lb=[0 0 0 0 ];
+%% Start with the default options
+options = optimoptions('linprog');
+%% Modify options setting
+options = optimoptions(options,'Display', 'off');
+options = optimoptions(options,'Algorithm', 'interior-point');
+[x,fval,exitflag,output,lambda] = ...
+linprog(f,Aineq,bineq,Aeq,beq,lb,[],[],options);
+\end{lstlisting}
+
+
+\subsubsection{求解结果}
+
+运行上述代码得到求解的结果：
+  $$x=\begin{bmatrix}
+    2,000,000\\
+    0\\
+    4,000,000\\
+    4,000,000
+  \end{bmatrix}$$
+$$fmax = 931,800$$
+所以我们投资于四种基金的金额分别为：    2,000,000美元，0美元，
+    4,000,000美元，
+    4,000,000美元。
+  一年后我们的预期收益为931,800美元。
+\end{CJK*}
+\end{document}
