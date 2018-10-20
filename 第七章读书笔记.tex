@@ -1,0 +1,311 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{ccmap}
+\usepackage{CJK}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+	\graphicspath{{figures/}}	%在tex目录下新建figures文件夹存放所有图片
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{bm,array}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+	\setlength{\parindent}{2em}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,extarrows}
+\usepackage{cite}
+\usepackage[labelsep=space]{caption}
+\usepackage{float}
+\usepackage{fancyhdr}		%设置页眉页脚
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+\usepackage{pdfpages}
+\usepackage{listings} %插入代码
+\usepackage{xcolor} %代码高亮
+
+\lstset{numbers=left, %设置行号位置
+        numberstyle=\tiny, %设置行号大小
+        keywordstyle=\color{blue}, %设置关键字颜色
+        commentstyle=\color[cmyk]{1,0,1,0}, %设置注释颜色
+        frame=single, %设置边框格式
+        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+        breaklines, %自动折行
+        extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+        xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
+        tabsize=4, %设置tab空格数
+        showspaces=false %不显示空格
+       }
+\usepackage{titlesec}	%设置章节标题格式
+	\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,章}{1em}{}
+	\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+	\titleformat{\subsubsection}{\xiaosihao\hei}{\thesubsubsection}{0em}{}
+	\titlespacing{\section}{0pt}{0pt}{1em}
+	\titlespacing{\subsection}{0pt}{0pt}{0em}
+	\titlespacing{\subsubsection}{0pt}{0pt}{0em}
+\usepackage{titletoc}		%设置目录内容格式
+	\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,章\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+	\titlecontents{subsection}[1em]{\xiaosihao\hei}{\,\,\thecontentslabel\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+\renewcommand{\figurename}{\wuhao\bf 图}
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+\renewcommand{\contentsname}{\xiaosanhao\hei \centerline{目录}}
+\renewcommand{\refname}{\xiaosanhao\hei 参考文献}
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}	%若想引用参考文献时使用上标数字可使用此句
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{Proposition}[theorem]{Proposition}
+\newtheorem{Remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{remark}
+\newtheorem{Corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}	%公式编号跟随章节
+\allowdisplaybreaks
+
+\renewcommand{\baselinestretch}{1.5}	%1.5倍行距
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}		%设置字号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+
+\newcommand{\song}{\CJKfamily{song}}    %设置字体
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\Arial}{\fontfamily{phv}\selectfont}
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+%\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,节}{1em}{}
+%\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,节\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+
+%----------------------------------------------------------------------------------------
+%	目录
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{center}
+\begin{hei}
+\Large
+Portfolio Construction and Analytics 读书笔记\\
+\end{hei}
+\end{center}
+
+
+
+\thispagestyle{fancy}
+\fancyhf{}
+%\chead{\xiaowuhao }
+\cfoot{\xiaowuhao \thepage}
+\tableofcontents
+\addcontentsline{toc}{section}{目录}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+
+%以下每一章(包括参考文献、附录)都要另起一页，并从奇数页开始
+%可以自行加入如下两行代码添加空白页
+%\newpage
+%\quad
+
+%----------------------------------------------------------------------------------------
+%	第一章 引言
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[CE]{\rightmark}
+\fancyhead[CO]{\leftmark}
+\fancyfoot[CE,CO]{\xiaowuhao \thepage}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\section{资产管理的介绍}
+\section{随机变量、概率分布和重要的统计概念}
+\section{常见的分布函数介绍}
+\section{统计学模型}
+\section{模型模拟}
+\section{模型优化}
+\section{非确定优化}
+\subsection{动态规划}
+
+所谓的动态规划，是指在$t$时刻的动态系统的状态$x_t$依赖于过去的状态:
+$$x_{t+1}=g_t(x_t,\mu_t,\xi_t)$$
+其中，$\mu_t$是一个控制变量，$\xi_t$而是一个随机变量。
+
+在金融领域，我们通常认为我们所研究的动态系统是有界的。我们记$f_t(x_t,\mu_t,\xi_t)$是一个动态系统在$t$时刻的代价（收益）。那么从0时刻到 $T$时刻，总的代价函数可以写成：
+$$\sum_{t=0}^Tf_t(x_t,\mu_t,\xi_t)$$
+
+如果我们想要最大化总的收益，相当于我们要选取 $\mu_t $使得:
+$$V_t(x_t)=\max_{\mu_t}\{c(\mu_t)+d\cdot V_{t+1}(\mu_t)\}$$
+
+（注：此处作者没有指明 $c(\mu_t)$表示什么意思，有点儿看不懂）
+
+\subsection{随机规划}
+\subsubsection{多级模型}
+
+课本的写法过于简略并且又没有指明每个变量的意义。
+这里结合wiki百科给出 Multistage Models 更为详细的介绍。
+
+假设在 $t=0$时刻我们有资金 $w_0$。我们计划投资于 n件标的资产。令 $x_{0}=(x_{10},\dots ,x_{n0})$为初始的资金分配,$\sum\limits _{i=1}^{n}x_{i0}=W_{0} ,\; x_{i0} \geq 0 $ 。假设我们允许在 $t=1,\ldots T-1$ 时刻调整我们的资产分配。
+
+令 $\xi _{t}=(\xi _{1t},\dots ,\xi _{nt}) $表示$t$时刻的资产回报率，$t=1,\dots ,T.$显然 $ \xi _{1},\dots ,\xi _{T}. $ 构成了一组随机变量。并且 $t$时刻的资产分配 $x_t$依赖于过去的信息。
+或者说， $x_t$是$\xi _{[t]} $的函数：$$x_{t}=x_{t}(\xi _{[t]}) $$
+其中$\xi _{[t]}=(\xi _{1},\dots ,\xi _{t})$是一组随机变量。并且对 $t=0,\dots ,T-1 $我们有：
+$$\sum _{i=1}^{n}x_{it}(\xi _{[t]})=W_{0},$$
+
+在 $t=1,\dots ,T $时刻资产的价值$W_{t} $为：
+$$W_{t}=\sum _{i=1}^{n}\xi _{it}x_{i,t-1}(\xi _{[t-1]}),$$
+
+假设我们的目标是最大化我们的总资产：
+$$\max E[U(W_{T})].$$
+
+显然，在 $t=T-1, $时刻，收益率 $\xi _{[T-1]}=(\xi _{1},\dots ,\xi _{T-1}) $是已知的。并且资产分配的权重 $x_{{T-2}} $也是已知的。那么，我们研究的问题就可以转化为：
+$${\begin{array}{lrclr}\max \limits _{x_{T-1}}&E[U(W_{T})|\xi _{[T-1]}]&\\{\text{subject to}}&W_{T}&=&\sum\limits _{i=1}^{n}\xi _{iT}x_{i,T-1}\\&\sum \limits _{i=1}^{n}x_{i,T-1}&=&W_{T-1}\\&x_{T-1}&\geq &0\end{array}}$$
+
+我们所优化的目标函数的最优值取决于 $W_{{T-1}}$和 ${\displaystyle \xi _{[T-1]}} $。我们把它记为 $Q_{T-1}(W_{T-1},\xi _{[T-1]}).$
+
+同样的，在时刻 $t=T-2,\dots ,1,$ 我们的优化问题可以写成：
+$${\begin{array}{lrclr}\max \limits _{x_{t}}&E[Q_{t+1}(W_{t+1},\xi _{[t+1]})|\xi _{[t]}]&\\{\text{subject to}}&W_{t+1}&=&\sum \limits  _{i=1}^{n}\xi _{i,t+1}x_{i,t}\\&\sum \limits _{i=1}^{n}x_{i,t}&=&W_{t}\\&x_{t}&\geq &0\end{array}}$$
+
+而在 $t=0$时刻，我们的优化问题成为：
+$${\begin{array}{lrclr}\max \limits _{x_{0}}&E[Q_{1}(W_{1},\xi _{[1]})]&\\{\text{subject to}}&W_{1}&=&\sum \limits  _{i=1}^{n}\xi _{i,1}x_{i0}\\&\sum \limits  _{i=1}^{n}x_{i0}&=&W_{0}\\&x_{0}&\geq &0\end{array}}$$
+
+下图展示了一个简单的场景树例子：这里有三个阶段，两个待优化阶段。每一个节点表示资产的价格。例如，在 $t=0$时刻，资产的价格为5是一个确定值。在 $t=2$时刻，资产的价格有5种可能的结果。
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4in]{721.png}
+\end{figure}
+
+给定上述场景树的情况下，我们可以按如下的步骤建立随机优化模型：
+
+(i) 定义变量 $x_t^{(s)}$：$t$时刻出现$s$场景时资产的价格。在本例中 $x_0^0$表示第0阶段资产的价格， $x_1^{1},x_1^{2}$表示第二阶段资产的价格， $x_2^{1},\ldots x_t^{5}$表示第三阶段资产的价格。
+
+(ii) 写出目标函数 ：
+$$\max \sum_{i=0}^2\sum_s \pi_i^{(s)}c_i^{(s)}x_i^{(s)}$$
+
+其中 $\pi_i^{(s)}$表示 $i$时刻出现 $s$场景的概率。
+
+（iii）写出每个阶段的约束条件：
+$$f_t(x_t^{(s)})=0 ~~ t = 0,1,2$$
+注记：课本中以线性函数的形式给出了每一个阶段的约束条件，但是肯本没有说明$ A$，$B$表示的是什么意思。
+
+那么，我们又是如何生成场景树的呢？通常来说又下面的四种方法：
+
+1.从历史数据中自足抽样。
+
+2.使用带参数的概率模型。
+
+3.生成服从历史数据分布的数据。
+
+4.采用自回归模型。
+
+\subsubsection{风险中性随机模型}
+
+假设现在有$N$件标的资产，回报率为 $\widetilde{r_1},\ldots,\widetilde{r_N}$。令 $w_1,\ldots,w_N$表示我们在$N$件资产中的投资比例。我们希望最大化我们投资组合的预期回报并且极小化投资组合的风险（方差）。假定未来资产回报率的情况有$S$种可能。比如，在情况$S$下，资产的回报率为：
+$$\sum_{i=1}^{N}r_i^sw_i$$
+我们用$\pi_1,\ldots,\pi_N$表示S种情形可能出现的概率：
+$$\sum_{s=1}^{S}\pi_s = 1$$
+令 $\mu_1,\ldots,mu_N$表示$N$种资产的预期回报率，那么总的期望汇报率为：
+$$\sum_{i=1}^{N}\mu_iw_i$$
+
+我们投资的总方差为：
+$$\sum_{s=1}^{S}\pi_s(\sum_{i=1}^{N}r_i^sw_i - \sum_{i=1}^{N}\mu_iw_i)^2 $$
+
+于是，我们可以定义我们的目标函数为：
+$$\max_w \sum_{i=1}^{N}\mu_iw_i-k [\sum_{s=1}^{S}\pi_s(\sum_{i=1}^{N}r_i^sw_i - \sum_{i=1}^{N}\mu_iw_i)^2]$$
+
+在这里 $k$为惩罚系数。通常 $k$由投资者自己给定。一般来说，投资者的风险厌恶程度越小，$k$的取值越小。
+
+我们不妨讨论一个具体的例子：
+
+下表展示了四种基金未来收益率可能出现的两种情况。我们假定情景1出现的概率为0.7，情景2出现的概率为 0.3。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=4in]{722.png}
+\end{figure}
+
+那么我们的目标函数就可以写成：
+$$
+{\begin{aligned}
+&\max_w 20.69 w_1+ 5.87w_2 +10.52w_3+ 2.43w_4\\
+-&0.3k(50.39w_1+ 15.69w_2 +23.29w_3+ 2.5w_4-(20.69 w_1+ 5.87w_2 +10.52w_3+ 2.43w_4))^2\\
+-&0.7k(-9.02w_1-3.96w_2 -2.25w_3+ 2.36w_4-(20.69 w_1+ 5.87w_2 +10.52w_3+ 2.43w_4))^2
+\end{aligned}}$$
+
+\subsubsection{机会约束模型}
+
+如果原始模型的约束条件为：
+$$a^{T}x\leq b$$
+
+那么机会约束模型的约束条件就可以写成：
+
+$$\Pr(a^{T}x)\leq \varepsilon$$
+
+显然，一个概率约束模型不是 一种标准的优化公式，我们需要将上述的条件进一步写成可以计算的问题。
+我们假定我们的资产有 $S$ 种不同汇报的情景。我们可以把约束条件写成 ：
+$$
+{\begin{aligned}
+a^s x &\leq b +My_s ~ s= 1,\ldots,S \\
+\sum_{s=1}^{S}y_s &\leq [\varepsilon S] \\
+y_s & \in{0,1}~  s= 1,\ldots,S
+\end{aligned}}$$
+
+其中 $M$是由投资者给出的常数（通常很大）。
+
+当 $y_s=0$时，我们需要满足如下的约束条件：
+
+$$a^s x \leq b +My_s ~ s= 1,\ldots,S  $$
+
+当 $y_s=1$时，由于 $My_s $很大，我们的问题成为一个无约束问题。
+
+而附加条件 ：
+$$\sum_{s=1}^{S}y_s \leq [\varepsilon S]$$约定了1最多出现的次数。
+
+例如，我们预期的资产汇报有115种可能，并且我们的置信度为 $\varepsilon=5\% $,那么我们允许出现最多 $[0.05*115]=5$个1。也就是说，我们在 $95\%$的情况下是不违背约束条件的。
+
+如果 $x$服从正态分布，那么我们的约束条件可以写成：
+$$a^s x +q_{1-\varepsilon }\sqrt{x^T\Sigma x}\leq b  $$
+这是一类二阶锥规划问题，那么我们该如何求解呢？鲁棒优化给出了很好的答案。
+
+\subsection{鲁棒优化}
+在随机规划中我们常常难以确定数据所服从的概率分布。鲁棒优化引入一个不确定集来帮助我们解决上述问题。鲁棒优化不同于线性规划，鲁棒优化的系数是一个不确定的集合，其目的是在最糟糕的条件下为目标函数找到一个最优解。
+
+例如，考虑线性约束问题：
+$$\widehat{a}^T x \leq b$$
+其中随机变量 $\hat{a}=(\hat{a}_1,\ldots,\hat{a}_N) $,其$95\%$的置信区间为：$(a_i-\delta_i,a_i+\delta_i) ,i=1,\ldots,N$。
+
+记：
+$$U_{\delta}(\widehat{a})=\{a| |a-\widehat{a}_i|\leq \delta_i,i=1,\ldots,N\}$$
+鲁棒优化的目标函数可以写成：
+$$\max_{a \in U_{\delta}(\widehat{a})} {a^Tx\leq b}$$
+
+可以将上诉式子写成一个易于求解的公式：
+$$a^Tx+\delta^T|x|\leq b$$
+
+在求解实际问题中，我们常常不需要将所有的系数都取到最糟糕的情况，由于我们容易获得系数的标准差和期望。我们常常采用经典的椭圆不确定集合：
+$$U_{\delta}(\widehat{a}) =\{a|(a-\widehat{a})^T\Sigma^{-1}(a-\widehat{a}) \leq \delta ^2\}$$
+等价地，我们可以写成：
+$$U_{\delta}(\widehat{a}) =\{a| ~||\Sigma^{-\frac{1}{2}}(a-\widehat{a}) ||\leq \delta\}$$
+于是，鲁棒优化问题：
+$$\widehat{a}^T x \leq b$$
+可以被化成：
+$$\widehat{a}^T x +k||\Sigma ^{\frac{1}{2}x}|| \leq b$$
+这就转化成了一个可以求解的规划类问题了。
+\end{CJK*}
+\end{document}
