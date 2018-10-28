@@ -1,0 +1,357 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{ccmap}
+\usepackage{CJK}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+	\graphicspath{{figures/}}	%在tex目录下新建figures文件夹存放所有图片
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{bm,array}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+	\setlength{\parindent}{2em}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,extarrows}
+\usepackage{cite}
+\usepackage[labelsep=space]{caption}
+\usepackage{float}
+\usepackage{fancyhdr}		%设置页眉页脚
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+\usepackage{pdfpages}
+\usepackage{listings} %插入代码
+\usepackage{xcolor} %代码高亮
+
+\lstset{numbers=left, %设置行号位置
+        numberstyle=\tiny, %设置行号大小
+        keywordstyle=\color{blue}, %设置关键字颜色
+        commentstyle=\color[cmyk]{1,0,1,0}, %设置注释颜色
+        frame=single, %设置边框格式
+        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+        breaklines, %自动折行
+        extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+        xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
+        tabsize=4, %设置tab空格数
+        showspaces=false %不显示空格
+       }
+\usepackage{titlesec}	%设置章节标题格式
+	\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,章}{1em}{}
+	\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+	\titleformat{\subsubsection}{\xiaosihao\hei}{\thesubsubsection}{0em}{}
+	\titlespacing{\section}{0pt}{0pt}{1em}
+	\titlespacing{\subsection}{0pt}{0pt}{0em}
+	\titlespacing{\subsubsection}{0pt}{0pt}{0em}
+\usepackage{titletoc}		%设置目录内容格式
+	\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,章\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+	\titlecontents{subsection}[1em]{\xiaosihao\hei}{\,\,\thecontentslabel\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+\renewcommand{\figurename}{\wuhao\bf 图}
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+\renewcommand{\contentsname}{\xiaosanhao\hei \centerline{目录}}
+\renewcommand{\refname}{\xiaosanhao\hei 参考文献}
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}	%若想引用参考文献时使用上标数字可使用此句
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{Proposition}[theorem]{Proposition}
+\newtheorem{Remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{remark}
+\newtheorem{Corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}	%公式编号跟随章节
+\allowdisplaybreaks
+
+\renewcommand{\baselinestretch}{1.5}	%1.5倍行距
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}		%设置字号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+
+\newcommand{\song}{\CJKfamily{song}}    %设置字体
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\Arial}{\fontfamily{phv}\selectfont}
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+%\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,节}{1em}{}
+%\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,节\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+
+%----------------------------------------------------------------------------------------
+%	目录
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{center}
+\begin{hei}
+\Large
+Portfolio Construction and Analytics 读书笔记\\
+\end{hei}
+\end{center}
+
+
+
+\thispagestyle{fancy}
+\fancyhf{}
+%\chead{\xiaowuhao }
+\cfoot{\xiaowuhao \thepage}
+\tableofcontents
+\addcontentsline{toc}{section}{目录}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+
+%以下每一章(包括参考文献、附录)都要另起一页，并从奇数页开始
+%可以自行加入如下两行代码添加空白页
+%\newpage
+%\quad
+
+%----------------------------------------------------------------------------------------
+%	第一章 引言
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[CE]{\rightmark}
+\fancyhead[CO]{\leftmark}
+\fancyfoot[CE,CO]{\xiaowuhao \thepage}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\section{资产管理的介绍}
+\section{随机变量、概率分布和重要的统计概念}
+\section{常见的分布函数介绍}
+\section{统计学模型}
+\section{模型模拟}
+\section{模型优化}
+\section{非确定优化}
+\section{资产多样化}
+
+分散风险(Diversification)
+在证券投资上，是指将资金分配在多种资产上，
+而这些资产的回报率相互之间的关联性比较低，以达分散风险的目的。这样做既可以降低风险，又不会损及收益。推出的各种银行、理财和基金系统的QDII产品为中国投资者提供了投资全球、分散风险和资产配置的更多选择。
+
+\subsection{资产分散的例子}
+
+假设有一个投资者计划投资两只股票（股票1和股票2），两种股票的回报率为：
+$$
+{\begin{aligned}
+E(r_1)=&\mu_1=9.1\%\\
+E(r_2)=&\mu_2=12.1\%
+\end{aligned}}$$
+
+两种股票的标准差：
+$$
+{\begin{aligned}
+\sigma_1=16.5\%\\
+\sigma_2=15.8\%
+\end{aligned}}$$
+
+很明显，第二只股票的表现要优于第一只股票，因为第二只股票的收益率比较高并且方差比较小。
+
+现在我们假定两只股票的相关系数$\rho_{12} = -0.22$,设$w_1,w_2$为投资与两只股票的权重。
+我们总的投资回报率为：
+$$r_p=w_1r_1+w_2r_2$$
+
+容易得到：
+$$E(r_p)=w_1\mu_1+w_2\mu_2$$
+$$\sigma_p^2=Var(w_1r_1+w_2r_2)=w_1^2\sigma_1^2+w_2^2\sigma_2^2+2w_1w_2\sigma_1\sigma_2\rho_{12}$$
+
+显然，我们的投资组合的均值和方差是随着$w_1,w_2$而变化的，我们可以从下图看到这一现象。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{81.png}
+\end{figure}
+
+在我们的这个例子中，具有负相关的两只股票显著地降低了投资的风险。然而，当两只股票不相关或者弱相关的时候这一效应就没有那么显著了。我们选取了标普500中的25只股票计算了这一个投资组合在过去12个月的表现（先选1只，依次增加）可以看到，随着股票数目的增加，投资的方差在减少，但是其减少的速度是递减的。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{812.png}
+\end{figure}
+
+
+\subsection{经典均值方差优化模型}
+
+假设一个投资者计划投资于N个标的资产。投资的权重$w=(w_1,\ldots,w_N)$。并且$\sum\limits _{i=1}^Nw_{i}=1.$。 那么预期的投资回报：
+$$\operatorname {E} (r_{p})=\sum _{i=1}^Nw_{i}\operatorname {E} (r_{i})\quad=\mu^Tw $$
+
+方差：
+$$\sigma_p^2=w^{T}\Sigma w$$
+
+其中 $\Sigma$是协方差矩阵。
+
+如果N只股票的相关系数矩阵为：
+$$
+\begin{aligned}
+C&=
+ \begin{bmatrix}
+    1& \ldots & \rho_{1N} \\
+    \vdots &  & \vdots \\
+    \rho_{N1} &\ldots & 1
+  \end{bmatrix}
+\end{aligned}
+$$
+
+那么协方差可以写成：
+$$\sigma_p^2=(w^{s})^T C w^s$$
+
+其中$w^s=(w_1\sigma_1,\ldots,w_N \sigma_N)$
+
+对于 $N=2$的情况：
+$$E(r_p)=w_1\mu_1+w_2\mu_2$$
+$$\sigma_p^2=w_1^2\sigma_1^2+w_2^2\sigma_2^2+2w_1w_2\sigma_1\sigma_2\rho_{12}$$
+
+经典的均值-方差优化问题可以写成：
+
+$${\begin{aligned}
+\min_w ~~~& w^{T}\Sigma w\\
+s.t.~~&w^T\mu=r_{target}\\
+&w^T\mathbf{1}=1
+\end{aligned}}$$
+
+其中$\mathbf{1}=(1,...,1)_{1\times N}$
+这是一个凸二次规划问题。构造拉格朗日乘法：
+$$L=w^{T}\Sigma w+2\lambda (\mu -w^{T}r_{target})+2\eta (1-w^T\mathbf{1}),$$
+
+令 $\frac{\partial T}{\partial w}=0,\frac{\partial T}{\partial \lambda}=0,\frac{\partial T}{\partial \eta}=0$ 解得：
+
+$$w^{{\mathrm  {opt}}}={\frac  {1}{\Delta }}[(\mu^{T}\Sigma^{{-1}}\mu)\Sigma^{{-1}}\mathbf{1}-(\mathbf{1}^{T}\Sigma^{{-1}}\mu)\Sigma^{{-1}}\mu]+{\frac  {r_{target} }{\Delta }}[(\mathbf{1}^{T}\Sigma^{{-1}}\mathbf{1})\Sigma^{{-1}}\mu-(\mu^{T}\Sigma^{{-1}}\mathbf{1})\Sigma^{{-1}}\mathbf{1}]$$
+
+其中：
+$$\Delta =(\mu^{T}\Sigma^{{-1}}\mu)(\mathbf{1}^{T}\Sigma^{{-1}}\mathbf{1})-(\mu^{T}\Sigma^{{-1}}\mathbf{1})^{2}>0.$$
+
+\subsection{有效边界理论}
+有效边界是在收益—风险约束条件下能够以最小的风险取得最大的收益的各种证券的集合。如图所示。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{83.png}
+\end{figure}
+
+图中，横座标表示风险，纵座标代表收益，阴影中的任意一点代表一种可行的组合证券，每一组合证券所提供的风险—收益组合可以通过横、纵座标上相应的两点予以确定。很明显，图中曲线上的各点代表的各种组合证券所对应的风险一收益组合远较阴影部分中其他各点代表的组合证券为优，因为它们能够在风险最小的情况下取得最大的收益;或者说，为取得一定收益而承受的风险最小，承受一定风险所获得的收益最大。曲线代表着证券投资的有效边界
+
+\subsection{经典均值方差优化模型}
+\subsubsection{预期回报公式}
+
+如果我们想要最大化投资组合的回报率，我们可以把优化问题写成：
+$${\begin{aligned}
+\min_w ~~~&w^T\mu  \\
+s.t. ~~~&w^{T}\Sigma w =\sigma_{target}^2\\
+&w^T\mathbf{1}  =1
+\end{aligned}}$$
+
+这是经典的均值方差优化模型，它将我们的风险限制在一定的水平下。我们会在第10章详细讨论。
+
+\subsubsection{风险厌恶公式}
+
+对于一个风险厌恶的投资者，他更加希望其投资组合不应该承受太多的风险。我们常常采用惩罚函数的方式来实现这一目标。
+$${\begin{aligned}
+\min_w ~~~&w^T\mu - \lambda w^{T}\Sigma w\\
+s.t. ~~~& w^T\mathbf{1}  =1
+\end{aligned}}$$
+
+其中的$\lambda $被称为风险厌恶系数。
+
+\subsection{资本市场线}
+资本市场线(Capital Market Line，简称CML)是指表明有效组合的期望收益率和标准差之间的一种简单的线性关系的一条射线。它是沿着投资组合的有效边界，由风险资产和无风险资产构成的投资组合。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{85.png}
+\end{figure}
+
+设$r_f$表示无风险收益率，令$w=(w_1,...,w_N)$表示投资于N件风险资产的权重，$r=(r_1,...,r_N)$表示投资预期收益率。容易知道我们总的资产回报率为：
+$$ w^Tr+(1-w^T)r_f$$
+
+方差为：
+$$w^T\Sigma w$$
+
+均值方差优化模型可以写成：
+$${\begin{aligned}
+\min_w ~~~&w^T\Sigma w\\
+s.t. ~~~& ^Tr+(1-w^T)r_f =r_{target}
+\end{aligned}}$$
+
+可以得到最优解为：
+$$w=C\Sigma^{-1}(r-r_f\mathbf{1})$$
+其中：
+$$C=\frac{r_{target}-r_f}{(r-r_f\mathbf{1})^T\Sigma^{-1}(r-r_f\mathbf{1})}$$
+
+如果我们的目标是最大化夏普比率,那么我们的目标函数可以写成：
+$${\begin{aligned}
+\max_w ~~~&\frac{w^Tr-r_f}{w^T\Sigma w}\\
+s.t. ~~~& w^T\mathbf{1}=1
+\end{aligned}}$$
+
+上述问题的解为：
+$$w^M=\frac{1}{\mathbf{1}^T\Sigma(r-r_f\mathbf{1})}\Sigma^{-1}(r-r_f\mathbf{1})$$
+
+\subsection{期望效用函数理论}
+如果某个随机变量$W$以概率$p_i$取值$w_i，i=1,2,…,n，$而某人在确定地得到$w_i$时的效用为$u(w_i)$那么，该随机变量给他的效用便是：
+$ E[u(W)] $。
+对于投资类问题，设 $u$是投资者的效用函数， $W_0$表示期初的资产，$W$表示期末的资产，投资者的目标是最大化$E[u(W)]$，那么投资者的效用优化问题可以写成：
+$${\begin{aligned}
+\max_w ~~~&E(u(W_0(1+w^Tr)))\\
+s.t. ~~~& w^T\mathbf{1}=1
+\end{aligned}}$$
+
+下面给出一些常见的效用函数。
+
+\subsubsection{二次效用函数}
+
+二次效用函数的形式为：
+$$u(x)=x-\frac{b^2}{2}x^2,b>0$$
+
+容易计算得到：
+$$E(u(W_0(1+w^Tr)))=u(W_0)+W_0\mu_P(1-bW_0)-\frac{b}{2}W_0^2(\sigma_p^2-\mu_p^2)$$
+
+其中$\mu_p,\sigma_p$表示收益的均值和方差。
+
+\subsubsection{线性效用函数}
+$$u(x)=a+bx$$
+$$E(u(W_0(1+w^Tr)))=a+bE(W)$$
+
+
+\subsubsection{指数效用函数}
+$$u(x)=-\frac{1}{a}e^{-ax}$$
+
+虽然指数效用函数是负值函数，但是这没有关系，因为他是严格递增的函数。
+
+\subsubsection{幂效用函数}
+$$u(x)=ax^a,0<a \leq 1$$
+
+\subsubsection{logistic效用函数}
+$$u(x)=ln(x)$$
+
+\subsubsection{再定义多样化}
+马科维茨的资产多样化理论在实际的场景中很难被使用，主要的原因是预期回报率通常是难以确定的。
+Choueifaty在2008年提出了如下的指标用于衡量资产的多样化比例。
+
+资产多样化比例(DR)
+$$DR(w)=\frac{w^T\sigma}{\sqrt{w^T\Sigma w}}$$
+
+其中 $\sigma$是投资标的的标准差。当 $DR(w)=1$时表示投资于单一品种。多样化的投资应该使得
+$DR(w)>1$。例如，等权重的投资组合 $DR(w)=\sqrt{N}$。第$i$件投资标的的风险占总投资风险的比例可以采用如下的计算公式：
+$$RC_i(w)=\frac{\partial\sigma(w)}{\partial w}=\frac{w_i(\Sigma w)_i}{\sigma(w)}$$
+
+其中 $(\sigma w)_i$是 $\sigma w$的第i个元素。这样的定义保证了总的投资风险为$\sigma(w)$。一个风险平价投资组合相当于一个等权重的投资组合：
+$$RC_i(w)=\frac{\sigma(w)}{N}$$
+
+Mailland在2010年考虑了如下的优化问题：
+$$\min_{w>0} f(w) = w^T\Sigma w-\sum_{i=1}^N ln(w_i)$$
+
+这是一个 优化领域的著名问题，采用内点法可以求解。近年来，多种多样的资产优化问题被提出，读者可以参考相关文献。
+\end{CJK*}
+\end{document}
