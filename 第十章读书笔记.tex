@@ -1,0 +1,327 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{ccmap}
+\usepackage{CJK}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+	\graphicspath{{figures/}}	%在tex目录下新建figures文件夹存放所有图片
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{bm,array}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+	\setlength{\parindent}{2em}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,extarrows}
+\usepackage{cite}
+\usepackage[labelsep=space]{caption}
+\usepackage{float}
+\usepackage{fancyhdr}		%设置页眉页脚
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+\usepackage{pdfpages}
+\usepackage{listings} %插入代码
+\usepackage{xcolor} %代码高亮
+
+\lstset{numbers=left, %设置行号位置
+        numberstyle=\tiny, %设置行号大小
+        keywordstyle=\color{blue}, %设置关键字颜色
+        commentstyle=\color[cmyk]{1,0,1,0}, %设置注释颜色
+        frame=single, %设置边框格式
+        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+        breaklines, %自动折行
+        extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+        xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
+        tabsize=4, %设置tab空格数
+        showspaces=false %不显示空格
+       }
+\usepackage{titlesec}	%设置章节标题格式
+	\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,章}{1em}{}
+	\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+	\titleformat{\subsubsection}{\xiaosihao\hei}{\thesubsubsection}{0em}{}
+	\titlespacing{\section}{0pt}{0pt}{1em}
+	\titlespacing{\subsection}{0pt}{0pt}{0em}
+	\titlespacing{\subsubsection}{0pt}{0pt}{0em}
+\usepackage{titletoc}		%设置目录内容格式
+	\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,章\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+	\titlecontents{subsection}[1em]{\xiaosihao\hei}{\,\,\thecontentslabel\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+\renewcommand{\figurename}{\wuhao\bf 图}
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+\renewcommand{\contentsname}{\xiaosanhao\hei \centerline{目录}}
+\renewcommand{\refname}{\xiaosanhao\hei 参考文献}
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}	%若想引用参考文献时使用上标数字可使用此句
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{Proposition}[theorem]{Proposition}
+\newtheorem{Remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{remark}
+\newtheorem{Corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}	%公式编号跟随章节
+\allowdisplaybreaks
+
+\renewcommand{\baselinestretch}{1.5}	%1.5倍行距
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}		%设置字号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+
+\newcommand{\song}{\CJKfamily{song}}    %设置字体
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\Arial}{\fontfamily{phv}\selectfont}
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+%\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,节}{1em}{}
+%\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,节\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+
+%----------------------------------------------------------------------------------------
+%	目录
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{center}
+\begin{hei}
+\Large
+Portfolio Construction and Analytics 读书笔记\\
+\end{hei}
+\end{center}
+
+
+
+\thispagestyle{fancy}
+\fancyhf{}
+%\chead{\xiaowuhao }
+\cfoot{\xiaowuhao \thepage}
+\tableofcontents
+\addcontentsline{toc}{section}{目录}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+
+%以下每一章(包括参考文献、附录)都要另起一页，并从奇数页开始
+%可以自行加入如下两行代码添加空白页
+%\newpage
+%\quad
+
+%----------------------------------------------------------------------------------------
+%	第一章 引言
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[CE]{\rightmark}
+\fancyhead[CO]{\leftmark}
+\fancyfoot[CE,CO]{\xiaowuhao \thepage}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\section{资产管理的介绍}
+\section{随机变量、概率分布和重要的统计概念}
+\section{常见的分布函数介绍}
+\section{统计学模型}
+\section{模型模拟}
+\section{模型优化}
+\section{非确定优化}
+\section{资产多样化}
+\section{因子模型}
+\section{投资组合构建的基准和跟踪误差的使用}
+
+
+\subsection{跟踪误差与阿尔法计算与阐释}
+
+正如我们在本章介绍中所提到的，跟踪误差衡量的是投资组合回报相对于指定基准回报的离差。数学上将跟踪误差并算为：
+
+主动回报=投资组合的实际回报-基准的实际回报
+
+如果一个被构建以定期与基准匹配的投资组合,如指数基金,具有零主动回报(即总是匹配基准的实际回报）,则其跟踪误差为零。但是如果是一个主动型管理的投资组合，并且持有与基准非常不同的仓位，那么它很可能会有相当大的或正或负的主动回报，因此将具有年化跟踪误差如$2\%-5\%$。
+
+考虑一个投资组合,它在半个月内比基准指数高10个基点，
+并在另一个半月比基准指数低10个基点。由于主动回报中存在变化，该投资组合将具有正的跟踪误差。但因为没有实现主动回报，在这种情形下投资组合的阿尔法将为零。下表显示了使用一个假设的投资组合和基准的12个月的观测值来计算跟踪误差所必需的信息。
+
+表中的第四列显示了该月的主动回报。月度主动回报的均值(平均值)和标准差分别为$0.21\%$和$0.96\%$
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{101.png}
+\end{figure}
+
+为了对时间长度为年的平均回报率进行年化计算，可将平均回报乘以$t$例如，要年 化平均月度回报(计算时间为$1/12$年)，可将平均月度回报乘以一年中的月数(12):
+
+为了对时间长度为$1/t$年的回报计算年化标准差，可将标准差乘以$t$的平方根。例如，要年化月度回报的标准差，可将月度标准差乘以一年中月数的平方根。
+
+要计算案例中的年平均主动回报率(阿尔法)，我们将月度主动回报$(0.21\%)$乘以一年中 的月数(12)年化主动回报率是:
+
+阿尔法 = $(0.21\%)\cdot (12) = 2.47\%$
+
+要计算年化跟踪误差，将每月标准差乘以以一年中月数的平方根。因此：
+
+年化跟踪误差= $(0.96\%)\cdot (\sqrt{12}) = 3.34\%$
+
+如果可以假设主动回报服从正态分布，那么就可以估计投资组合主动回报的可能范围， 以及给定跟踪误差下的投资组合回报的相应范围。例如，假设如下：
+
+基准=标普500指数
+
+标普500指数的期望回报=$20\%$
+
+相对于标普500指数的跟踪误差=$2\%$
+
+如果主动名义回报服从正态分布，则其分布在平均回报的一个标准差内，$95\%$将落 距平均回报的大约两个标准差内，$99\%$将落在距平均回报的大约三个标准差内。给定关于正态分布的这些众所周知的事实 可以估计投资组合回报如下：
+
+有$68\%$的机会在标普500指数的期望回报的一个标准差内
+
+有$95\%$的机会在标普500指数的期望回报的两个标准差内
+
+有$99\%$的机会在标普500指数的期望回报的三个标准差内
+
+\subsection{前视和回望跟踪误差}
+
+在上面的表格中，我们展示了基于投资组合12个月实际主动回报的跟踪误差的计算。投资组合所实现的业绩是投资组合经理在12个月内对投资组合定位问题的决策结果，例如贝塔、板块配置、风格偏好(价值型与成长型)，以及单个证券选择。从历史主动回报结果的这种方式来计算跟踪误差称为回望跟踪误差、事后跟踪误差和实际跟踪误差。
+
+回望跟踪误差虽然在投资组合绩效评估中有用，但缺乏预测价值，并且在评估投资组合 风险时可能会产生误导。这是因为它不反映投资组合经理的当前决定(例如，板块配置的变化）可能将对未来主动回报和跟踪误差产生影响。
+
+\subsection{跟踪误差与信息比率}
+
+信息比率(IR)是一种广泛使用的风回报绩效指标。计算公下
+
+$$\text{信息比率}=\frac{\text{阿尔法}}{\text{回望跟踪误差}}$$
+
+IR本质上是回报——风险比。IR越高，管理者相对假设风险的绩效越 好。IR还试图衡量一致性。一个高IR 比率表示投资组合经理每个月都比基准指数略胜一 筹(而不是在几个月的时间里休胜很多)。绩效的一致性被认为是投资组合经理的理想特征。
+
+为了说明IR的计算，考虑上表中假设的投资组合的主动回报。该投资组合的年化平均主动回报率为$2.47\%$: 回望跟踪误差$3.34\%$。因此,信息比 率为 0.74.
+
+\subsection{跟踪误差预测的计算}
+
+\subsubsection{跟踪误差计算中的方差——协方差方法}
+
+在给定基准的情况下，可以使用回报的协方差矩阵来计算前视跟踪误差。具体来说，跟 踪误差是投资组合回报率$w^Tr$和基准回报率$w_b^T\hat{r}$之差的标准差。这里，$w$是投资组合权重的 向量,$w_b$是基准权重的向量。向量$(w^Tr-w_b^T\hat{r})$是风险敞口的向量:
+
+$${\begin{aligned}
+TE&=\sqrt{Var(w^Tr-w_b^T\hat{r})}  \\
+&=\sqrt{(w-w_b)^T\Sigma(w-w_b)}
+\end{aligned}}$$
+
+其中$\Sigma   $是证券回报的协方差矩阵。
+
+\subsubsection{基于多因子模型的跟踪误差计算}
+
+正如第九章解释的，一般的因子模型具有如下的形式：
+
+$${\displaystyle r_{i}=\alpha _{i}+f _{1}\beta_{i1}+\cdots +f _{p}\beta_{ip}+\varepsilon _{i} \qquad i=1,\ldots ,n,}$$
+
+$r_i$:第i份资产收益率
+
+$f_k$：影响因子
+
+$\beta_{ik}$:回归系数（灵敏度）
+
+$\alpha$:常数
+
+$\varepsilon _{i} $随机扰动
+
+假设投资组合中有N个证券和K个因子，那么投资组合的方差 $\sigma_p^2$可以表示成为：
+
+$$\sigma_p^2=\sum_{k=1}^K\sum_{l=1}^K\beta_{pk}\beta{pl}\sigma_{kl}^2+\sum_{i=1}^N\sigma_{\varepsilon _{i}}^2w_i^2$$
+
+$\sigma_{\varepsilon _{i}}^2$:$\varepsilon _{i}$的方差；
+
+$\sigma_{kl}^2$:因子k和因子l的协方差；
+
+$\beta_{pk}$为对因子k的投资组合的敏感度：
+$$\beta_{pk}=\sum_{i=1}^N\beta_{ik}w_i$$
+
+基于多因子模型的跟踪误差为：
+$$\sigma_{TE}=\sqrt{\sum_{k=1}^M\sum_{l=1}^M\overline{\beta_{pk}}~\overline{\beta_{pl}}\sigma_{kl}^2+\sum_{i=1}^N\sigma_{\varepsilon _{i}}^2(w_i-w_{ib})^2}$$
+
+$\overline{\beta_{pk}}$为对因子k的投资组合的主动敏感度：
+$$\overline{\beta_{pk}}=\sum_{i=1}^N\beta_{ik}w_i-\sum_{j=1}^{N_b}\beta_{jk}w_{jp}$$
+
+在上述公式中 $N_b$是基准中证券的数量，$w_{ib}$是基准中证券i的权重。
+
+\subsection{基准和指数}
+
+\subsubsection{市场指数}
+
+市场指数可以分为三类：
+
+（1）那些来自交易所的，基于所有在交易所交易的证券。
+
+（2）那些来自组织机构，其主观选择纳入基准的证券。
+
+（3）那些证券选择来自客观测算，如市值，或对于债券来说，最低信用评级和发行规模。
+
+市场指数中的证券必须以一定比例进行综合，并且必须对每种证券赋予权重。两种主要的加权机制的方法是：
+
+(1)	市值加权。
+
+(2)	均等加权。
+
+\subsubsection{非市值加权指数}
+
+历史上，市值加权的市场指数已成为客户选择的基准,在市场指数中使用市值加权的理 论依据是由资本市场理论提供的。如果市场是价格有效的且满足CAPM的限制性条件，那 么取得市场效率的最好方法是持有市值加权的投资组合，这也是指数意图体现的。然而，近 年来，在给定客户期望的风险敞口下，研究已经开始质疑市值市场指数是否提供了最高的期 望回报，进而这些指标是否是评估投资组合经理的合适基准。
+
+
+我们基于AmQtt、Hsu和Moore的以个例子来说明如何构造一个特定指数。假 设我们想编制一个代表公司规模的基于基本面的指数，使用以下公司规模指标：
+
+$\bullet$账面价值
+
+$\bullet$5年尾随平均现金流
+
+$\bullet$5年尾随平均收入
+
+$\bullet$5年尾随平均销售总额
+
+$\bullet$5年尾随平均总股息
+
+$\bullet$总员工数
+
+在根据每个指标对公司排名之后，可以计算排名中每个股票的相对权重，例如，根据每个 指标选择最大的1 000支股票。最后的结果可能是一个复合基本面指数，其中，股票的排名由 其在每个指标的规模因子相对权重的均等加权之和来确定。
+
+\subsection{聪明的贝塔投资者}
+
+我们已经在多个章节遇到了术语贝塔。贝塔衡量的是特定证券对市场的敏感性,例如，一个贝塔为1的股票与市场同步运行当市场回报率增加$1\%$时，贝塔为1的股票的回报率将增加$1\%$(平均）。
+
+聪明贝塔这个术语现在是一个涵盖广泛策略的伞形术语。聪明贝塔机会集合可以包括(Thomas, 2014):
+
+$\bullet$资本量加权的替代方法(如基于估值、低波动性或等权投资组合)。
+
+$\bullet$对非传统资产类别(例如商品、无通胀、波动性、货币利率)的投资。
+
+$\bullet$另类资产类别收益，如利率上下限和杠杆策略。
+
+
+对于包括在单纯指数中的证券，可以有多种多样化的替代：
+
+(1)	具有规范约束的最小波动性加权:在投资组合集中度的约束设置下，整体投资组合 波动性(标准差)最小化，此约束也称为规范约束。
+
+(2)	有效最大夏普比率加权:投资组合夏普比率最大化，其中期望回报通过假设它们与股票所属的风险组中的下行风险中值成比例。
+
+(3)	最大去相关加权:在假设股票之间个体波动相词之下，整体投资组合的波动是最小的。这个思路是组合股票以便利用投资组合中股票之间的低相关性而引起的风险削减效应， 而不是通过集中具有低波动性（标准差)的股票来降低风险。
+
+这些多元化机制中的每一个都在牛市和熊市以及高波动和低波动状况中表现不同。
+
+聪明贝塔基金十直在运用越来越复杂的投资规则。例如ProShares Large Cap Core Plus使用杠杆(即借人资金)针对10种不同因包括价值、成长，价格动量来购买股票。杠杆为什么可能有帮助的原因如下图所示。假设将因子模型用于创建一个具有最佳风险回报平衡的多元化股票投资组合(投资组合A)想要更高回报的投资者通常有两种选择: (1)投资更多的股票，承担更多的股票风险(投资组合C)，或(2)对一个多元化的投资组合应 用杠杆来实现特定的目标回报水平(投资组合B)。 —个运用杠杆的投资继合一投资组合 B——是实现目标回报的选择之一。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{10.png}
+\end{figure}
+
+\end{CJK*}
+\end{document}
