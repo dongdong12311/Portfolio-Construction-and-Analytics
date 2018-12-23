@@ -1,0 +1,487 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{ccmap}
+\usepackage{CJK}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+	\graphicspath{{figures/}}	%在tex目录下新建figures文件夹存放所有图片
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{bm,array}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+	\setlength{\parindent}{2em}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,extarrows}
+\usepackage{cite}
+\usepackage[labelsep=space]{caption}
+\usepackage{float}
+\usepackage{fancyhdr}		%设置页眉页脚
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+\usepackage{pdfpages}
+\usepackage{listings} %插入代码
+\usepackage{xcolor} %代码高亮
+
+\lstset{numbers=left, %设置行号位置
+        numberstyle=\tiny, %设置行号大小
+        keywordstyle=\color{blue}, %设置关键字颜色
+        commentstyle=\color[cmyk]{1,0,1,0}, %设置注释颜色
+        frame=single, %设置边框格式
+        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+        breaklines, %自动折行
+        extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+        xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
+        tabsize=4, %设置tab空格数
+        showspaces=false %不显示空格
+       }
+\usepackage{titlesec}	%设置章节标题格式
+	\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,章}{1em}{}
+	\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+	\titleformat{\subsubsection}{\xiaosihao\hei}{\thesubsubsection}{0em}{}
+	\titlespacing{\section}{0pt}{0pt}{1em}
+	\titlespacing{\subsection}{0pt}{0pt}{0em}
+	\titlespacing{\subsubsection}{0pt}{0pt}{0em}
+\usepackage{titletoc}		%设置目录内容格式
+	\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,章\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+	\titlecontents{subsection}[1em]{\xiaosihao\hei}{\,\,\thecontentslabel\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+\renewcommand{\figurename}{\wuhao\bf 图}
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+\renewcommand{\contentsname}{\xiaosanhao\hei \centerline{目录}}
+\renewcommand{\refname}{\xiaosanhao\hei 参考文献}
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}	%若想引用参考文献时使用上标数字可使用此句
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{Proposition}[theorem]{Proposition}
+\newtheorem{Remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{remark}
+\newtheorem{Corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}	%公式编号跟随章节
+\allowdisplaybreaks
+
+\renewcommand{\baselinestretch}{1.5}	%1.5倍行距
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}		%设置字号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+
+\newcommand{\song}{\CJKfamily{song}}    %设置字体
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\Arial}{\fontfamily{phv}\selectfont}
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+%\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,节}{1em}{}
+%\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,节\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+
+%----------------------------------------------------------------------------------------
+%	目录
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{center}
+\begin{hei}
+\Large
+Portfolio Construction and Analytics 读书笔记\\
+\end{hei}
+\end{center}
+
+
+
+\thispagestyle{fancy}
+\fancyhf{}
+%\chead{\xiaowuhao }
+\cfoot{\xiaowuhao \thepage}
+\tableofcontents
+\addcontentsline{toc}{section}{目录}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+
+%以下每一章(包括参考文献、附录)都要另起一页，并从奇数页开始
+%可以自行加入如下两行代码添加空白页
+%\newpage
+%\quad
+
+%----------------------------------------------------------------------------------------
+%	第一章 引言
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[CE]{\rightmark}
+\fancyhead[CO]{\leftmark}
+\fancyfoot[CE,CO]{\xiaowuhao \thepage}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\section{资产管理的介绍}
+\section{随机变量、概率分布和重要的统计概念}
+\section{常见的分布函数介绍}
+\section{统计学模型}
+\section{模型模拟}
+\section{模型优化}
+\section{非确定优化}
+\section{资产多样化}
+\section{因子模型}
+\section{投资组合构建的基准和跟踪误差的使用}
+\section{量化权益投资组合管理的近期发展}
+\section{基于因子的权益投资组合构建和业绩评估}
+\section{固定收益投资组合管理基础}
+\section{基于因子的固定收益投资组合的构建和评估}
+\section{构建债务驱动的投资组合}
+\subsection{与债务相挂钩的风险}
+
+与债务相挂钩的风险有三种：（1）利率风险，（2）通货膨胀风险，以及（3）长寿风险
+
+\subsubsection{利率风险}
+
+
+
+第13章中，我们学习了如何计算债券的久期。久期是利率风险的衡量。债券投资组合
+的久期是假定利率平行变动时，每100个基点的利率变动所导致的投资组合价格变化的近似
+百分比。举个例子，一个投资组合的久期是5，也就是说利率变化100个基点，这个组合的价
+格会变化大约5$\%$。债券投资组合久期的这一概念和计算方法同样适用于负债。负债久期的
+原理也是如此。例如，一个负债的久期是10，意味着利率变化100个基点，这个负债的价格会
+上升或下降大约10$\%$
+
+负债值是通过对负债的现值在合适的利率下进行折现来计算的。虽然选取合适的利率
+是关键的一步，利率越高，负债值越低，反之亦然
+资产和负债的差值叫做盈余，即：
+盈余=债券投资组合价值-负债值
+当利率变化时，盈余也会随着投资组合的久期、负债久期及投资组合和负债的现值而改
+变。比如，让我们看看在投资组合久期和负债久期分别为5和10，当利率改变100个基点时，
+债券投资组合和负债值是如何改变的。我们假设债券投资组合的现值为1亿美元，负债值为
+8000万美元，则盈余就是2000万美元。
+如果利率变化100个基点，债券投资组合会变化5$\%$或500万美元，但是负债也会随着改
+变10$\%$或者800万美元。由此，如果利率上升100个基点，那么投资组合的价值将下降500
+万美元，但是负债会下降更多，即800万美元。因此，盈余会增加300万美元。反之，如果利
+率下降100个基点，盈余将会减少300万美元。
+
+\subsubsection{通货膨胀风险}
+
+当负债的未来偿付需要按通货膨胀率来调整时，那么和资产一样，负债也会面临通货膨
+胀的风险。一些人寿保险产品会随着通货膨胀而调整。几乎所有的界定福利计划都会随着
+通货膨胀而调整其计划参与者的偿付金额。在预测养老金计划的负债时，会假设一个通货膨胀率。所以，养老金计划的通货膨胀风险是预设的通货胀率低于实际通货膨胀率，养老金
+计划的负债对于通货膨胀风险的敏感度可以通过改变预测负债中所使用的通货膨胀率来量
+化，随后对负债进行重新估值。
+
+\subsubsection{长寿风险}
+
+寿险产品（如年金）和界定福利养老金计划中给计划参与者退体后的偿付，其保单持有人
+的债务期限依赖于预期寿命的假设。长寿风险是寿险保单持有人和养老金计划的计划参与
+者的实际寿命超过债务预测时假定的预期寿命的风险。长寿风险意味着实际偿付给保单持
+有者或计划参与者的金额超出预期金额。
+
+为了更好地理解长寿风险的显著性，我们考虑一下美国自1950年以来的平均寿命。根
+据死亡率表，美国男性和女性在出生时的平均寿命预期如下:1950年，68.2岁;\\1960年，
+69.7岁；1970年，70.8岁;1980年，73.7岁;1900年，75.8岁;200年0，77岁;\\2010年，78.7 岁，2020
+年的预测寿命为79.5岁。
+
+考虑一个界定养老金计划赞助人的预期负债，其精算师采用了1980年的平均寿命73.7
+岁，并假设退休年龄为65岁。在1980年，预期偿付期限是65岁后的8.7年（=73.7-65）
+到2020年，这个赞助人会平均多缴付5年的养老金（=78.7-73.7）
+
+\subsection{寿险公司的债务驱动策略}
+
+\subsubsection{免疫}
+
+免疫（immunization）可以被定义为一个过程，在其中，构建一个债券投资组合使得其在
+规定的时间范围内有确定的回报而不受利率变化的影响。也就是说，免疫策略仅仅应对与资
+产和负债相关的利率风险。
+
+免疫策略的范围落在两大类战略之间:部分(久期)免疫和完全(现金流匹配)免疫
+前者策略主要被寿险公司用于管理担保的投资合约,GIC是由寿险公司发行的，并由保险公司承诺保单持有者在指定时间(如5年)内固定的回报
+率，GIC通常由界定福利养老金计划的费助人作为基金组合的一部分而购买，并且一般也是
+常见的投资工具。
+
+我们先来看看久期免疫策略，该策略的重要特点如下：
+
+(1)一个指定的时间期限。
+
+(2)在到固定的未来时点的持有期间，有一个确保的回报率。
+
+(3)在期问投资组合价值对潜在不利利率变化的免疫。
+
+1，利用久期进行部分免度:案例
+
+让我们用一个例子来诠释久期免疫的机制。假设一个寿险公司发行了GIC，从现在开始
+的5年内付清100万美元。我们假设这笔金额是固定的，且不会在时间期限内因通货膨胀而
+调整，寿险公司必须在今天投资足够的资金以满足未来的义务。也就是说，忽略利润，寿险
+公司必须向保单持有人收取一定的保费，使得当保费在当前的市场利率下被投资5年时，这
+笔投资会产生100万美元来付清GIC的负债
+为保持简单，我们假设寿险公司可以获有的投资范围有B1和B2两种债券，两种债券的
+面值为100美元。期限分别为12年和5年，票面利率分别为6$\%$和5$\%$。为了简便起见，我们
+假设票息每年支付一次面不是半年一次，为了使整个投资组合(债券和负债)对于利率变化
+免疫，寿险公司需要投资多少资金于这两种债券呢？
+
+
+下表包含了当前的收益率曲线(“Spot”列)、由收益率曲线计算而来的折现因子(“df”
+列)、债券1和2的现金流(“B1”和“B2”列)，以及两种债券现金流的现值(“PV1”和“PV2”
+列)。当前债券的价格是每支债券现金流现值之和，D它们分别为89.66美元和120.10美元。
+
+
+现在，让我们来计算债券的久期和负。如我们在第13.4.1部分第1部分中曾经解释过
+的，久期可以定义为利率每一单位变化所引起的债券价值的大致变化，且其公式可以表示为:
+
+$$D=\frac{B_{-}-B_{+}}{2B_0\Delta y}$$
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{151.png}
+\end{figure}
+
+表15.2展示了如何确定债券1和2的久期。我们考虑利率移动$\Delta y =25$个基点，且计
+算在利率向上或向下变动25个基点时新的收益率曲线、现值和债券价格。表中标注如下$d_{-}$和$d_{+}$分别为利率下降和上升的折现因子，PV1-和PV1+分别为利率下降和上升的债券1的现金流现值，PV2-和PV2＋分别为利率下降和上升的债券2的现金流现值。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{152.png}
+\end{figure}
+
+
+债券价格如下:当利率下降时，B2=91.46美元，B2=121.32美元。当利率上升时，
+B=87.91美元，B=118.90美元。我们可以由此计算出两个债券的久期D1和D2。债券
+1的久期为:
+
+$$D_1=\frac{91.46-87.91}{2\cdot 89.66\cdot 0.0025 }=7.91$$
+同样，债券2的久期可以计算得出为4.02。
+
+为了计算100万美元负债的久期，我们采用一个类似的过程。5年期的即期利率为5.45$\%$
+所以负债的现值为$$
+\frac{1000000}{
+(1+0.0545)^5}=766950.05$$
+当利率下降了25个基点时，负债的价格变为:$$
+\frac{1000000}{
+(1+0.0545-0.0025)^5}=776106.46$$
+当利率上升时，负债的价格变为757922.96美元。所以，负债的久期为4.74
+
+
+
+现在让我们控制利率风险。我们构建一个包含两支债券的不受利率变化影响的投资组
+合，为了达到这个目的，我们先要明确每支债券的投资单位数量($x_1$和$x_2$)，以使得债券的现
+金流现值等于负债的现值，且债券投资组合的久期等于负债的久期。那么我们如何计算债券债券投资组合的久期是单个债券久期的加权平均，
+其中加权平均的权重是该债券在投资组合中的权重。这里权重可以用$x_1$／($x_1$+$x_1$)和
+$x_2$／($x_1$+$x_1$)来表示。
+
+我们需要解出以下方程组，其中的未知数分别是投资债券1和债券2的单位数量$x_1$
+和x
+\begin{align*}
+&B_1x_1+B_2x_2=PV\\
+&D_1x_1/(x_1+x_2)+D_2x_1/(x_1+x_2)=D
+\end{align*}
+为了使其变为线性方程组，我们在第二个公式的左右两边乘上($x_1$+$x_1$)，这样，我们只
+需找出满足以下式子的$x_1$和$x_2$
+\begin{align*}
+&B_1x_1+B_2x_2=PV\\
+&D_1x_1+D_2x_1=D(x_1+x_2)
+\end{align*}
+
+2.免疫风险
+
+现在让我们来核实一下，当收益率曲线平移时，这一笔投资会完全覆盖负债。表15.3总
+结了债券价格的相关信息、负债值，以及利率上升或下降1$\%$(100个基点)时投资组合的总价
+值，我们可以看出，投资组合在很大程度上(虽然不是完美地)免除了利率变化的影响。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{153.png}
+\end{figure}
+
+3.其他问题
+
+投资组合应该多久再平衡以调整其久期呢？一方面，经常性调整会导致交易成本上升，
+因此会降低达到目标回报的可能性。另一方面，不常调整投资组合会导致投资组合久期偏离
+目标久期，这也会降低达到目标回报的可能。所以，寿险公司的投资组合基金经理面临着
+个平衡:为避免投资组合久期过度偏离其目标，一些交易成本是必要的，但是也必须容忍投资
+组合久期的一些偏差，否则交易成本会变得十分高昂。
+
+
+
+4.利用现金流匹配的完全免疫策略
+
+
+假设一名资产经理管理资金以满足保单持有人未来4年年金的负债。我们假定该保单
+基于预期寿命为额外4年的假设，需要在接下来4年内每半年付款一次。因此，基于这些简
+单假设，如果保单实际上要求在保单持有人的生命中向他们支付款项，那么寿险公司没有解
+决长寿风险问题
+假设接下来4年内8次现金支付金额用向量$m=(m_1,\dots,m_8)$来表示。寿险公司的资
+产经理考虑投资以下5种不同的高投资级别债券，在接下来的8个支付日(即半年付息一
+次)，债券支付利息$c_i=(c_{i1},\dots,c_{i8})$。如果债券于时间$t$到期，相应的$c_{it}$等于票面利息加
+上本金。债券1-5现在的卖出价$p=(P_1,\dots,p_5)$其中$P_1=102.36$美元，$P_2=110.83$美元，
+$P_3=96.94$美元，$P_4=114.65$美元$P_4=96.63$美元。相应日期在表15.4中列出。资产经理想
+要确保债券利息足够偿还年金的支付义务。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{154.png}
+\end{figure}
+
+
+为了规划这个问题，资产经理必须清楚基金的目的。虽然问题没有明确表达，但这样一
+个目的——即最小化当前购买债券的成本，并且满足所有未来预期支付义务，是合理的
+决策变量可以被定义为投入每一支债券的美元金额x在当前
+购买债券的成本等于购买5支债券的金额之和:
+$$\sum_{i=1}^5p_ix_i$$
+
+约束是，在每个支付日，所有债券的票息现金流至少要等于债务。数学上，优化问题可以
+表达为:
+$$
+{\begin{aligned}
+&~~\min_x \sum_{i=1}^5p_ix_i\\
+&~~s.t \sum_{i=1}^5c_{it}x_i \geq m_t\\
+&~~x_i\geq 0,i=1,2,3,4,5
+\end{aligned}}$$
+
+这是线性规划问题，因为目标函数和约束都是决策变量$x_i,i=1,2,3,4$的线性方程
+我们下面将用 Excel Solver来展示其实施。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=5in]{159.png}
+\end{figure}
+
+\newpage
+\subsubsection{高级优化方法}
+
+到目前为止，我们已经过论了保险公司如何利用债券投资组合来对冲负债风险在实际
+中，一旦保单持有人的保费被收集起来时，保险公司就可以将其投资于一个固定收益投资组
+合或一个含有大量股权的投资组合。后者属于回报驱动型策略，其关注点在于取得回报而
+不是对冲，且为了提高整体投资组合回报而追求在股票市场上的更高回报。事实显示，寿险
+公司可以通过投资更大部分的资产到一个最优结构的权益组合来 显著提高其利润，并且提供
+更高额的保证金，但是这有可能导致资产和负债之间失衡的高度变动性。在这种情况下，不
+确定性下的高级优化方法与产生未来场景的蒙特卡洛模拟的结合已经得到应用。例如
+Consiglio、 Saunders和 Zenios(2006)运用随机规划来求解寿险公司基金下的投资组合的最
+优结构。 Gulpinar、 Pachamanova和 Canakoglu(2015)利用稳健优化思路研究了多期限权
+益投资问题的规划，他们发现，稳健的优化策略在不利市场时期，在变动性和相对回报方面
+有好的表现。所谓不利市场时期是指未来实现的权益回报具有一个比预期更低的均值的概
+率分布
+
+
+
+\subsubsection{构建复制型投资组合}
+
+构建复制型投资组合的方法通常有三种
+
+(1)资产负债表法:找到一个资产投资组合，其当前市场价值在一系列敏感性范围内(即
+模型参数的小变化)，可以匹配负债的公允价值。
+
+2)现金流集合法:找到一个资产投资组合，其总的未来折现(或累计后)现金流在一系
+列场景下可以非常匹配总的折现(或累计后)负债现金流
+
+(3)年现金流法:找到一个资产投资组合，其未来时点的现金流在所有年份中的一系列
+场景下，可以非常匹配负债现金流。
+
+\subsection{界定福利养老金的债务驱动策略}
+
+
+在第15.1节中，我们学习了盈余的概念。对于典型的界定福利养老金计划来说，负债价
+值超过资产价值。养老金计划的经济健康状况由所谓的资金缺口( funding gap)来衡量，其计
+算方法如下
+
+\begin{center}
+资金缺口=基金负债的预测值-基金资产的市值
+\end{center}
+简单来说，资金缺口就是养老金计划中资金未能覆盖的债务。
+
+养老金计划经济健康状况的另一个视角是看养老金计划的资产占预计负债的比例。这
+个比值叫做资金比例( funding ratio):
+
+\begin{center}
+资金比例=基金资产的市值/负债的预计值
+\end{center}
+比例越低，资金缺口就越大。
+
+\subsubsection{高等级债券投资组合解决方案}
+一个提出的方案是构建仅含有高等级债券(公司债和美国国债)以及利率行生品的投资
+组合。这是我们在第15.2.1部分第4部分中提到过的基于久期的多期负债免疫策略的一种
+应用。为了理解这种方法的原理，我们忽略除利率风险之外的所有其他风险。资金缺口对利
+率风险敞口的第一个近似是资产和负债的美元久期。即
+\begin{center}
+资金缺口利率风险=由于利率风险而导致的资金缺口变化
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~=预计负债的美元久期-基金资产的美元久期
+\end{center}
+例如，考虑一个如下的界定福利养老金计划:
+
+基金资产市值=5亿美元
+
+预计负债值=6亿美元
+
+投资组合久期(即基金资产的久期)=7
+
+负久期(即预计负债的久期)=12
+
+在这个假设计划中，资金缺口和资金比例分别为1亿美元(=6亿美元-5亿美元)和83.33$\%$
+(=5亿美元/6亿美元)
+
+假定利率平移100个基点，让我们看看预计负债和基金资产的美元久期:
+
+当利率改变100个基点，基金资产将改变7$\%$。
+
+当利率改变100个基点，预计负债约将改变12$\%$
+\\
+美元久期(每100个基点)的变化为:
+
+投资组合的美元久期=7$\%$×5亿美元=3500万美
+
+负债的美元久期=12$\%$×6亿美元=7200万美元
+
+这意味利率改变100个基点，资金缺口改变约3700万美元。更具体些，此时风险在于利率下
+降。在此环境下，负债价值将上升7200万美元，但基金资产将增加3500万美元，导致资金
+缺口上升3700万美元。
+
+\subsubsection{包含其他资产}
+
+一个更激进的负债驱动策略由两个投资组合组成:
+
+一个投资组合追求策略来管理风险。
+
+一个投资组合追求策略来产生资产增长。
+
+第二个投资组合称作“寻求业绩的投资组合”或者“超额回报投资组合”。资产增长可
+以通过资产类别来完成，如股权、高收益债券和另类投资。
+
+总的计划回报因此可以表达为
+
+\begin{center}
+总的计划回报=负债免疫投资组合回报+寻求业绩的投资组合回报-负债回报
+\end{center}
+
+引入能提供比高等级债券更大风险溢价的现金市场产品会导致对其他投资风险的敞口
+
+
+\subsubsection{高级建模策略}
+
+如我们在第15.3.2部分中提到，额外的资产分类可以用来增强投资组合的风险状态或者
+生额外回报。在构建含有额外资产类别的最优资产——债务管理策略中，不确定性下的优化
+技术的使用已经有很长历史了。 Barberis及 Detemple和 Rindisbacher都曾描述
+过动态规划法，在其中状态空间是离散的，最优配置策略是通过倒推法来实现。 Brandt、
+Goyal， Santa-clara和 Stroud(2005)以及 Boender(1997)曾经介绍过基于模拟的优化方法。
+在实践中，随机规划法曾经是主要的高级优化方法。这类方法关注于在养老金资产和负债
+未来回报的一系列场景中找到最优投资规则。对多时段养老基金管理的稳健优化技术的应
+用也已经得到研究。虽然它被发现不具有随机规划法对问题建模的灵活性，但是在不利市场
+状态下的最坏场景中有更好的表现。
+
+
+\end{CJK*}
+\end{document}
+
+
