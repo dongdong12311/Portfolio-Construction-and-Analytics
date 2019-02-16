@@ -1,0 +1,157 @@
+\documentclass[a4paper,12pt,twoside]{article}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage{ccmap}
+\usepackage{CJK}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+	\graphicspath{{figures/}}	%在tex目录下新建figures文件夹存放所有图片
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{bm,array}
+\usepackage{subfigure}
+\usepackage{indentfirst}
+	\setlength{\parindent}{2em}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts,extarrows}
+\usepackage{cite}
+\usepackage[labelsep=space]{caption}
+\usepackage{float}
+\usepackage{fancyhdr}		%设置页眉页脚
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+\usepackage{pdfpages}
+\usepackage{listings} %插入代码
+\usepackage{xcolor} %代码高亮
+
+\lstset{numbers=left, %设置行号位置
+        numberstyle=\tiny, %设置行号大小
+        keywordstyle=\color{blue}, %设置关键字颜色
+        commentstyle=\color[cmyk]{1,0,1,0}, %设置注释颜色
+        frame=single, %设置边框格式
+        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+        breaklines, %自动折行
+        extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+        xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
+        tabsize=4, %设置tab空格数
+        showspaces=false %不显示空格
+       }
+\usepackage{titlesec}	%设置章节标题格式
+	\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,章}{1em}{}
+	\titleformat{\subsection}{\sihao\hei}{\thesubsection}{1em}{}
+	\titleformat{\subsubsection}{\xiaosihao\hei}{\thesubsubsection}{0em}{}
+	\titlespacing{\section}{0pt}{0pt}{1em}
+	\titlespacing{\subsection}{0pt}{0pt}{0em}
+	\titlespacing{\subsubsection}{0pt}{0pt}{0em}
+\usepackage{titletoc}		%设置目录内容格式
+	\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,章\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+	\titlecontents{subsection}[1em]{\xiaosihao\hei}{\,\,\thecontentslabel\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+\renewcommand{\figurename}{\wuhao\bf 图}
+\renewcommand{\thefigure}{\thesection-\arabic{figure}}
+\renewcommand{\contentsname}{\xiaosanhao\hei \centerline{目录}}
+\renewcommand{\refname}{\xiaosanhao\hei 参考文献}
+%\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}	%若想引用参考文献时使用上标数字可使用此句
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{Proposition}[theorem]{Proposition}
+\newtheorem{Remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{remark}
+\newtheorem{Corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}	%公式编号跟随章节
+\allowdisplaybreaks
+
+\renewcommand{\baselinestretch}{1.5}	%1.5倍行距
+\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont}		%设置字号
+\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+\newcommand{\xiaosihao}{\fontsize{12pt}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5pt}{\baselineskip}\selectfont}
+\newcommand{\xiaowuhao}{\fontsize{9pt}{\baselineskip}\selectfont}
+
+\newcommand{\song}{\CJKfamily{song}}    %设置字体
+\newcommand{\hei}{\CJKfamily{hei}}
+\newcommand{\Arial}{\fontfamily{phv}\selectfont}
+
+
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+\renewcommand{\sectionmark}[1]{\markboth{\xiaowuhao 第\,\thesection\,章\hspace*{1em}#1}{\xiaowuhao }}
+%\titleformat{\section}{\xiaosanhao\hei}{第\,\thesection\,节}{1em}{}
+%\titlecontents{section}[0em]{\sihao\hei}{第\,\thecontentslabel\,节\hspace*{1em}}{}{\dotfill\contentspage}[\addvspace{-3mm}]
+
+%----------------------------------------------------------------------------------------
+%	目录
+%----------------------------------------------------------------------------------------
+
+\newpage
+\begin{center}
+\begin{hei}
+\Large
+Portfolio Construction and Analytics 读书笔记\\
+\end{hei}
+\end{center}
+
+
+
+\thispagestyle{fancy}
+\fancyhf{}
+%\chead{\xiaowuhao }
+\cfoot{\xiaowuhao \thepage}
+\tableofcontents
+\addcontentsline{toc}{section}{目录}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+%完成封面到附录后，最后制作英文目录
+%将已完成的所有tex代码复制粘贴至Content.tex文件，将加入目录的部分改为对应的英文即可
+\newpage
+\addcontentsline{toc}{section}{\Arial Contents}
+
+
+%以下每一章(包括参考文献、附录)都要另起一页，并从奇数页开始
+%可以自行加入如下两行代码添加空白页
+%\newpage
+%\quad
+
+%----------------------------------------------------------------------------------------
+%	第一章 引言
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{fancy}
+\fancyhead[CE]{\rightmark}
+\fancyhead[CO]{\leftmark}
+\fancyfoot[CE,CO]{\xiaowuhao \thepage}
+\setcounter{page}{0}
+\pagenumbering{arabic}
+\section{资产管理的介绍}
+\section{随机变量、概率分布和重要的统计概念}
+\section{常见的分布函数介绍}
+\section{统计学模型}
+\section{模型模拟}
+\section{模型优化}
+\section{非确定优化}
+\section{资产多样化}
+\section{因子模型}
+\section{投资组合构建的基准和跟踪误差的使用}
+\section{量化权益投资组合管理的近期发展}
+\section{基于因子的权益投资组合构建和业绩评估}
+\section{固定收益投资组合管理基础}
+\section{基于因子的固定收益投资组合的构建和评估}
+\section{构建债务驱动的投资组合}
+\section{金融衍生品基础}
+
+本章内容比较基本，笔者已经学习过一遍，故没有做这一章的笔记。
+
+\end{CJK*}
+\end{document}
+
+
